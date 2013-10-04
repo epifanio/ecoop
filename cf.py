@@ -15,7 +15,7 @@ from ecooputil import shareUtil as EU
 eu = EU()
 class cfData():
     def nao_get(self, url="https://climatedataguide.ucar.edu/sites/default/files/climate_index_files/nao_station_djfm.txt",
-                save=None):
+                save=None, csvout='nao.csv'):
         """
         read NAO data from url and return a pandas dataframe
         @param url: url to data online default is set to :
@@ -28,7 +28,7 @@ class cfData():
             print 'dataset used: %s', url
             if save:
                 eu.ensure_dir(save)
-                output = os.path.join(save, 'nao.csv')
+                output = os.path.join(save, csvout)
                 naodata.to_csv(output, sep=',', header=True, index=True, index_label='Date')
                 print 'nao data saved in :', output
             return naodata
@@ -37,7 +37,7 @@ class cfData():
             # at this point should we can try to load old/cache/alternative dataset ?
 
 
-    def nin_get(self, url='http://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices', save=None):
+    def nin_get(self, url='http://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices', save=None, csvout='nin.csv'):
         """
         read NIN data from url and return a pandas dataframe
         @param url: url to data online default is set to : http://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices
@@ -60,7 +60,7 @@ class cfData():
             nin_anomalies.columns = ['nin']
             if save:
                 eu.ensure_dir(save)
-                output = os.path.join(save, 'nin.csv')
+                output = os.path.join(save, csvout)
                 nin_anomalies.to_csv(output, sep=',', header=True, index=True, index_label='Date')
                 print 'data saved as', output
             return nin_anomalies
@@ -80,7 +80,7 @@ class cfData():
         return date
 
 
-    def amo_get(self, url='http://www.cdc.noaa.gov/Correlation/amon.us.long.data', save=None):
+    def amo_get(self, url='http://www.cdc.noaa.gov/Correlation/amon.us.long.data', save=None, csvout='amo.csv'):
         """
         read AMO data from url and return a pandas dataframe
         @param url: url to data online default is set to : http://www.cdc.noaa.gov/Correlation/amon.us.long.data
@@ -98,7 +98,7 @@ class cfData():
             amodata = pd.DataFrame(amodata)
             if save:
                 eu.ensure_dir(save)
-                output = os.path.join(save, 'amo.csv')
+                output = os.path.join(save, csvout)
                 amodata.to_csv(output, sep=',', header=True, index=True, index_label='Date')
                 print 'data saved as', output
             return amodata
@@ -120,7 +120,7 @@ class cfPlot():
                    center=False, std=0.1,
                    beta=0.1, power=1, width=1,
                    min_periods=None, freq=None,
-                   scategory=None, frac=1. / 3, it=3):
+                   scategory=None, frac=1. / 3, it=3, figsave=None):
         """
         Function to plot the Climate Forcing indicator for the ESR 2013, it follow graphic guidlines from the past ESR
         adding functionalities like :
@@ -199,7 +199,8 @@ class cfPlot():
                 ax1.set_xmargin(0.1)
             if legend:
                 ax1.legend()
-            figsave = name + '.png'
+            if not figsave:
+                figsave = name + '.png'
             if scategory == 'rolling':
                 newy = self.rolling_smoother(data, stype=smoother, win_size=win_size, win_type=win_type, center=center, std=std,
                                         beta=beta, power=power, width=width)
