@@ -4,18 +4,15 @@ import os
 import sys
 from zipfile import ZipFile, ZIP_DEFLATED
 from contextlib import closing
-
 import paramiko
 import qrcode
-
 from IPython.core.display import HTML, Image
 from IPython.display import display, Javascript
-
 import envoy
-
+from datetime import datetime
 
 class shareUtil():
-    def zipdir(basedir, archivename, rm='no'):
+    def zipdir(self, basedir, archivename, rm='no'):
         """
         utility function to zip a single file or a directory
         usage : zipdir(input, output)
@@ -36,8 +33,7 @@ class shareUtil():
             instruction = 'rm -rf %s' % basedir
             os.system(instruction)
 
-
-    def uploadfile(username='epi', password='epi', hostname='localhost', port=22,
+    def uploadfile(self, username='epi', password='epi', hostname='localhost', port=22,
                    inputfile=None, outputfile=None, link=False, apacheroot='/var/www/', zip=False, qr=False):
         '''
         utility to upload file on remote server using sftp protocol
@@ -111,8 +107,7 @@ class shareUtil():
         except IOError:
             print "Error: can\'t find file or read data check if input file exist and or remote location is writable"
 
-
-    def gistit(filename, jist='/usr/local/bin/jist', type='notebook'):
+    def gistit(self, filename, jist='/usr/local/bin/jist', type='notebook'):
         '''
         use the jist utility to paste a txt file on github as gist and return a link to it
         usage :  gistit(notebookfile)
@@ -141,8 +136,7 @@ class shareUtil():
         except IOError:
             print 'input file %s not found' % filename
 
-
-    def get_id(suffix, makedir=True):
+    def get_id(self, suffix, makedir=True):
         '''
         generate a directory based on the suffix and a time stamp
         output looks like : suffix_Thursday_26_September_2013_06_28_49_PM
@@ -152,12 +146,11 @@ class shareUtil():
         '''
         ID = suffix + '_' + str(datetime.now().utcnow().strftime("%A_%d_%B_%Y_%I_%M_%S_%p"))
         if makedir:
-            ensure_dir(ID)
+            self.ensure_dir(ID)
         print 'session data directory : ID', ID
         return ID
 
-
-    def ensure_dir(dir):
+    def ensure_dir(self, dir):
         '''
         make a directory on the file system if it does not exist
         usage: ensure_dir(dir)
@@ -167,8 +160,7 @@ class shareUtil():
         if not os.path.exists(dir):
             os.makedirs(dir)
 
-
-    def save_notebook(ID, notebookname, web=None, notebookdir=None):
+    def save_notebook(self, ID, notebookname, web=None, notebookdir=None):
         """
         Save the notebook file as html and or as gist
         @param ID: directory name where to store the saved notebook
@@ -188,21 +180,18 @@ class shareUtil():
         os.system(command2)
         if web:
             try:
-                gistit(notebookfile)
+                self.gistit(notebookfile)
             except IOError:
                 print "can't genrate a gist"
 
-
-    def which(program):
+    def which(self, program):
         """
         Check if a program exist and return the full path
         @param program: executable name or path to executable
         @return: full path to executable
         """
-
         def is_exe(fpath):
             return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
-
         fpath, fname = os.path.split(program)
         if fpath:
             if is_exe(program):
@@ -213,7 +202,4 @@ class shareUtil():
                 exe_file = os.path.join(path, program)
                 if is_exe(exe_file):
                     return exe_file
-
         return None
-
-

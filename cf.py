@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os
 import envoy
 
@@ -10,9 +11,10 @@ lowess = sm.nonparametric.lowess
 from scipy.interpolate import interp1d
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from ecooputil import shareUtil as EU
+eu = EU()
 class cfData():
-    def nao_get(url="https://climatedataguide.ucar.edu/sites/default/files/climate_index_files/nao_station_djfm.txt",
+    def nao_get(self, url="https://climatedataguide.ucar.edu/sites/default/files/climate_index_files/nao_station_djfm.txt",
                 save=None):
         """
         read NAO data from url and return a pandas dataframe
@@ -25,7 +27,7 @@ class cfData():
             naodata = pd.read_csv(url, sep='  ', header=0, skiprows=0, index_col=0, parse_dates=True, skip_footer=1)
             print 'dataset used: %s', url
             if save:
-                ensure_dir(save)
+                eu.ensure_dir(save)
                 output = os.path.join(save, 'nao.csv')
                 naodata.to_csv(output, sep=',', header=True, index=True, index_label='Date')
                 print 'nao data saved in :', output
@@ -35,7 +37,7 @@ class cfData():
             # at this point should we can try to load old/cache/alternative dataset ?
 
 
-    def nin_get(url='http://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices', save=None):
+    def nin_get(self, url='http://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices', save=None):
         """
         read NIN data from url and return a pandas dataframe
         @param url: url to data online default is set to : http://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices
@@ -57,7 +59,7 @@ class cfData():
             nin_anomalies = nin_anomalies.rename(columns={'0': 'nin'})
             nin_anomalies.columns = ['nin']
             if save:
-                ensure_dir(save)
+                eu.ensure_dir(save)
                 output = os.path.join(save, 'nin.csv')
                 nin_anomalies.to_csv(output, sep=',', header=True, index=True, index_label='Date')
                 print 'data saved as', output
@@ -67,7 +69,7 @@ class cfData():
             # at this point should we can try to load old/cache/alternative dataset ?
 
 
-    def parse(yr, mon):
+    def parse(self, yr, mon):
         """
         Convert year and month to a datatime object, day hardcoded to 2nd day of each month
         @param yr: year date integer or string
@@ -78,7 +80,7 @@ class cfData():
         return date
 
 
-    def amo_get(url='http://www.cdc.noaa.gov/Correlation/amon.us.long.data', save=None):
+    def amo_get(self, url='http://www.cdc.noaa.gov/Correlation/amon.us.long.data', save=None):
         """
         read AMO data from url and return a pandas dataframe
         @param url: url to data online default is set to : http://www.cdc.noaa.gov/Correlation/amon.us.long.data
@@ -95,7 +97,7 @@ class cfData():
             amodata.name = "amo"
             amodata = pd.DataFrame(amodata)
             if save:
-                ensure_dir(save)
+                eu.ensure_dir(save)
                 output = os.path.join(save, 'amo.csv')
                 amodata.to_csv(output, sep=',', header=True, index=True, index_label='Date')
                 print 'data saved as', output
@@ -105,7 +107,7 @@ class cfData():
             print 'unable to fetch the data, check if %s is a valid address and data is conform to AMO spec, for info about data spec. see [1]' % url
 
 class cfPlot():
-    def plot_index(data, name='Index',
+    def plot_index(self, data, name='Index',
                    nb=True, datarange=None,
                    xticks=10, xticks_fontsize=10,
                    dateformat=False, figsize=(10, 8),
@@ -199,11 +201,11 @@ class cfPlot():
                 ax1.legend()
             figsave = name + '.png'
             if scategory == 'rolling':
-                newy = rolling_smoother(data, stype=smoother, win_size=win_size, win_type=win_type, center=center, std=std,
+                newy = self.rolling_smoother(data, stype=smoother, win_size=win_size, win_type=win_type, center=center, std=std,
                                         beta=beta, power=power, width=width)
                 ax1.plot(newy.index.year, newy.values, lw=3, color='g')
             if scategory == 'expanding':
-                newy = expanding_smoother(data, stype=smoother, min_periods=min_periods, freq=freq)
+                newy = self.expanding_smoother(data, stype=smoother, min_periods=min_periods, freq=freq)
                 ax1.plot(newy.index.year, newy.values, lw=3, color='g')
             if scategory == 'lowess':
                 x = np.array(range(0, len(data.index.values))).T
@@ -225,7 +227,7 @@ class cfPlot():
             if dateformat:
                 fig.autofmt_xdate(bottom=0.2, rotation=75, ha='right')
             if output:
-                ensure_dir(output)
+                eu.ensure_dir(output)
                 ffigsave = os.path.join(output, figsave)
                 plt.savefig(ffigsave, dpi=dpi)
                 print 'graph saved in: ', ffigsave
@@ -247,12 +249,12 @@ class cfPlot():
                 fig.subplots_adjust(right=1.0)
             plt.show()
         except AssertionError:
-            if type(naodata) != pd.core.frame.DataFrame:
+            if type(data) != pd.core.frame.DataFrame:
                 print 'input data not campatible, it has to be of type : pandas.core.frame.DataFrame'
             print 'data not loaded correctly'
 
 
-    def rolling_smoother(data, stype='rolling_mean', win_size=10, win_type='boxcar', center=False, std=0.1, beta=0.1,
+    def rolling_smoother(self, data, stype='rolling_mean', win_size=10, win_type='boxcar', center=False, std=0.1, beta=0.1,
                          power=1, width=1):
         """
         Perform a espanding smooting on the data for a complete help refer to http://pandas.pydata.org/pandas-docs/dev/computation.html
@@ -326,7 +328,7 @@ class cfPlot():
         return newy
 
 
-    def expanding_smoother(data, stype='rolling_mean', min_periods=None, freq=None):
+    def expanding_smoother(self, data, stype='rolling_mean', min_periods=None, freq=None):
         """
         Perform a expanding smooting on the data for a complete help refer to http://pandas.pydata.org/pandas-docs/dev/computation.html
         @param data: pandas dataframe input data
@@ -368,7 +370,7 @@ class cfPlot():
         return newy
 
 class cfPrint():
-    def makepdf(ID, cf='climate_forcing.txt', naotxt='nao.txt', amotxt='amo.txt', nbname='None', nbviewerlink=None,
+    def makepdf(self, ID, cf='climate_forcing.txt', naotxt='nao.txt', amotxt='amo.txt', nbname='None', nbviewerlink=None,
                 naodatalink=None, amodatalink=None, naofigfile='nao.png', amofigfile='amo.png', verbose=False):
         """
         generate a PDF from a latext template ( it is intended to be just an eaxmple to show how to use a latex
