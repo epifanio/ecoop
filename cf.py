@@ -1,3 +1,4 @@
+#%%file cf.py
 #!/usr/bin/python
 import os
 import envoy
@@ -375,6 +376,55 @@ class cfPlot():
         return newy
 
 class cfPrint():
+    def cftemplate(self, pdfdict):
+        texfile = ['texfile']
+        cf = pdfdict['cf']
+        naotxt = pdfdict['naotxt']
+        naofigfile = pdfdict['naofigfile']
+        naodatalink = pdfdict['naodatalink']
+        nbviewerlink = pdfdict['nbviewerlink']
+        amotxt = pdfdict['amotxt']
+        amofigfile = pdfdict['amofigfile']
+        amodatalink = pdfdict['amodatalink']
+        nbviewerlink = pdfdict['nbviewerlink']
+        template = """\documentclass{article}
+        \usepackage{multicol}
+        \usepackage[english]{babel}
+        \usepackage{blindtext}
+        \usepackage[pdftex]{graphicx}
+        \usepackage{graphicx}
+        \usepackage{wrapfig}
+        \usepackage{hyperref}
+        \usepackage{fancyvrb}
+        \usepackage[utf8]{inputenc}
+        \\begin{document}
+        \\begin{twocolumn}
+        \section{Climate Forcing}
+        \input{%s}
+        \subsection{North Atlantic Oscillation Index}
+        \inputencoding{utf8}
+        \input{%s}
+        \\begin{figure}[h]
+        {\includegraphics[width=60mm]{%s}}
+        \caption{North Atlantic Oscillation - \href{%s}{data} -
+        \href{%s}{code}.}
+        \end{figure}
+        \subsection{Atlantic Multidecadal Oscillation}
+        \inputencoding{utf8}
+        \input{%s}
+        \\begin{figure}[h]
+        {\includegraphics[width=60mm]{%s}}
+        \caption{Atlantic Multidecadal Oscillation - \href{%s}{data} - \href{%s}{code}.}
+        \end{figure}
+        \end{twocolumn}
+        \end{document}"""
+        linestring = template % (
+            cf, naotxt, naofigfile, naodatalink, nbviewerlink, amotxt, amofigfile, amodatalink, nbviewerlink)
+        #newfile = open(os.path.join(ID, 'climate_forcing.tex'), 'w')
+        newfile = open(texfile, 'w')
+        newfile.write(linestring)
+        newfile.close()
+    
     def makepdf(self, ID, cf='climate_forcing.txt', naotxt='nao.txt', amotxt='amo.txt', nbname='None', nbviewerlink=None,
                 naodatalink=None, amodatalink=None, naofigfile='nao.png', amofigfile='amo.png', verbose=False):
         """
@@ -426,14 +476,16 @@ class cfPrint():
         \end{figure}
         \end{twocolumn}
         \end{document}"""
-        naofigfile = os.path.join(ID, naofigfile)
-        amofigfile = os.path.join(ID, amofigfile)
+        #naofigfile = os.path.join(ID, naofigfile)
+        #amofigfile = os.path.join(ID, amofigfile)
         #if os.path.isfile(naofigfile) and os.path.isfile(amofigfile):
-        cf = cf
-        naotxt = naotxt
-        amotxt = amotxt
+        #cf = cf
+        #naotxt = naotxt
+        #amotxt = amotxt
         listafile = [naofigfile, amofigfile, cf, naotxt, amotxt]
+        '''
         for i in listafile:
+            print i
             try:
                 with open(i):
                     pass
@@ -441,12 +493,16 @@ class cfPrint():
                 print 'file %s not found' % i
                 print 'make PDF aborted'
                 return
+        '''
         linestring = template % (
             cf, naotxt, naofigfile, naodatalink[0], nbviewerlink, amotxt, amofigfile, amodatalink[0], nbviewerlink)
-        newfile = open(os.path.join(ID, cf), 'w')
+        #newfile = open(os.path.join(ID, 'climate_forcing.tex'), 'w')
+        newfile = open('climate_forcing.tex', 'w')
         newfile.write(linestring)
         newfile.close()
-        instruction = 'pdflatex -output-directory=%s %s' % (ID, cf)
+        
+        instruction = 'pdflatex -output-directory=%s %s' % (ID, os.path.join(ID, 'climate_forcing.tex'))
+        print instruction
         r = envoy.run(instruction, timeout=12)
         if verbose:
             print r.std_out.strip()#.split('\n')
