@@ -55,7 +55,7 @@ class shareUtil():
         if zip:
             #print 'add zipfile'
             zipfile = str(inputfile + '.zip')
-            zipdir(inputfile, zipfile)
+            self.zipdir(inputfile, zipfile)
             inputfile = zipfile
             #paramiko.util.log_to_file('/var/www/esr/paramiko.log')
         client = paramiko.SSHClient()

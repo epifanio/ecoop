@@ -1,4 +1,3 @@
-#%%file cf.py
 #!/usr/bin/python
 import os
 import envoy
@@ -14,6 +13,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from ecooputil import shareUtil as EU
 eu = EU()
+#eu = shareUtil()
 class cfData():
     def __init__(self):
         self.x = 'Hello'
@@ -378,8 +378,8 @@ class cfPlot():
 
 
 class cfPrint():
-    def cftemplate(self, ID, pdfdict):
-        textfile = ['textfile']
+    def cftemplate(self,ID, pdfdict):
+        textfile = pdfdict['textfile']
         cf = pdfdict['cf']
         naotxt = pdfdict['naotxt']
         naofigfile = pdfdict['naofigfile']
@@ -422,94 +422,10 @@ class cfPrint():
         \end{document}"""
         linestring = template % (
             cf, naotxt, naofigfile, naodatalink, nbviewerlink, amotxt, amofigfile, amodatalink, nbviewerlink)
-        #newfile = open(os.path.join(ID, 'climate_forcing.tex'), 'w')
-        newfile = open(os.path.join(ID, textfile), 'w')
-        #newfile = open(textfile, 'w')
+        newfile = open(os.path.join(ID, 'climate_forcing.tex'), 'w')
+        print textfile, ID
+        texoutput = os.path.join(ID, textfile)
+        newfile = open(texoutput, 'w')
         newfile.write(linestring)
         newfile.close()
-    
-    def makepdf(self, ID, cf='climate_forcing.txt', naotxt='nao.txt', amotxt='amo.txt', nbname='None', nbviewerlink=None,
-                naodatalink=None, amodatalink=None, naofigfile='nao.png', amofigfile='amo.png', verbose=False):
-        """
-        generate a PDF from a latext template ( it is intended to be just an eaxmple to show how to use a latex
-        template to generate a pdf dinamically embedding link to URI inside the document)
-        example for the first section of the ESR.
-        NOTE :
-        the data and uri can easly point to an RDF description of this document
-        (the document needs its own ontology stored on a triple store)
-        @param ID:
-        @param cf:
-        @param naotxt:
-        @param amotxt:
-        @param nbname:
-        @param nbviewerlink:
-        @param naodatalink:
-        @param amodatalink:
-        @param naofigfile:
-        @param amofigfile:
-        """
-        template = """\documentclass{article}
-        \usepackage{multicol}
-        \usepackage[english]{babel}
-        \usepackage{blindtext}
-        \usepackage[pdftex]{graphicx}
-        \usepackage{graphicx}
-        \usepackage{wrapfig}
-        \usepackage{hyperref}
-        \usepackage{fancyvrb}
-        \usepackage[utf8]{inputenc}
-        \\begin{document}
-        \\begin{twocolumn}
-        \section{Climate Forcing}
-        \input{%s}
-        \subsection{North Atlantic Oscillation Index}
-        \inputencoding{utf8}
-        \input{%s}
-        \\begin{figure}[h]
-        {\includegraphics[width=60mm]{%s}}
-        \caption{North Atlantic Oscillation - \href{%s}{data} -
-        \href{%s}{code}.}
-        \end{figure}
-        \subsection{Atlantic Multidecadal Oscillation}
-        \inputencoding{utf8}
-        \input{%s}
-        \\begin{figure}[h]
-        {\includegraphics[width=60mm]{%s}}
-        \caption{Atlantic Multidecadal Oscillation - \href{%s}{data} - \href{%s}{code}.}
-        \end{figure}
-        \end{twocolumn}
-        \end{document}"""
-        #naofigfile = os.path.join(ID, naofigfile)
-        #amofigfile = os.path.join(ID, amofigfile)
-        #if os.path.isfile(naofigfile) and os.path.isfile(amofigfile):
-        #cf = cf
-        #naotxt = naotxt
-        #amotxt = amotxt
-        listafile = [naofigfile, amofigfile, cf, naotxt, amotxt]
-        '''
-        for i in listafile:
-            print i
-            try:
-                with open(i):
-                    pass
-            except IOError:
-                print 'file %s not found' % i
-                print 'make PDF aborted'
-                return
-        '''
-        linestring = template % (
-            cf, naotxt, naofigfile, naodatalink[0], nbviewerlink, amotxt, amofigfile, amodatalink[0], nbviewerlink)
-        #newfile = open(os.path.join(ID, 'climate_forcing.tex'), 'w')
-        newfile = open('climate_forcing.tex', 'w')
-        newfile.write(linestring)
-        newfile.close()
-        
-        instruction = 'pdflatex -output-directory=%s %s' % (ID, os.path.join(ID, 'climate_forcing.tex'))
-        print instruction
-        r = envoy.run(instruction, timeout=12)
-        if verbose:
-            print r.std_out.strip()#.split('\n')
-        instruction2 = 'rm -rf %s/climate_forcing.aux %s/climate_forcing.log %s/climate_forcing.out' % (ID, ID, ID)
-        r = envoy.run(instruction2, timeout=12)
-        if verbose:
-            print r.std_out.strip()#.split('\n')
+        print texoutput
