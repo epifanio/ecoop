@@ -119,7 +119,7 @@ class shareUtil():
         try:
             with open(filename):
                 link = None
-                jist = which(jist)
+                jist = self.which(jist)
                 if jist:
                     try:
                         r = envoy.run('%s -p %s' % (jist, filename))
