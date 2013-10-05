@@ -14,6 +14,9 @@ import matplotlib.pyplot as plt
 from ecooputil import shareUtil as EU
 eu = EU()
 class cfData():
+    def __init__(self):
+        self.x = 'Hello'
+
     def nao_get(self, url="https://climatedataguide.ucar.edu/sites/default/files/climate_index_files/nao_station_djfm.txt",
                 save=None, csvout='nao.csv'):
         """
@@ -34,7 +37,7 @@ class cfData():
             return naodata
         except IOError:
             print 'unable to fetch the data, check if %s is a valid address and data is conform to AMO spec, for info about data spec. see [1]', url
-            # at this point should we can try to load old/cache/alternative dataset ?
+            # try cached version / history-linked-uri
 
 
     def nin_get(self, url='http://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices', save=None, csvout='nin.csv'):
@@ -66,7 +69,7 @@ class cfData():
             return nin_anomalies
         except IOError:
             print 'unable to fetch the data, check if %s is a valid address and data is conform to AMO spec, for info about data spec. see [1]', url
-            # at this point should we can try to load old/cache/alternative dataset ?
+            # try cached version / history-linked-uri
 
 
     def parse(self, yr, mon):
@@ -105,6 +108,7 @@ class cfData():
         except:
             print 'doh'
             print 'unable to fetch the data, check if %s is a valid address and data is conform to AMO spec, for info about data spec. see [1]' % url
+            # try cached version / history-linked-uri
 
 class cfPlot():
     def plot_index(self, data, name='Index',
