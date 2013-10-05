@@ -375,9 +375,11 @@ class cfPlot():
             newy = pd.expanding_kurt(data, min_periods=min_periods, freq=freq)
         return newy
 
+
+
 class cfPrint():
-    def cftemplate(self, pdfdict):
-        texfile = ['texfile']
+    def cftemplate(self, ID, pdfdict):
+        textfile = ['textfile']
         cf = pdfdict['cf']
         naotxt = pdfdict['naotxt']
         naofigfile = pdfdict['naofigfile']
@@ -421,7 +423,8 @@ class cfPrint():
         linestring = template % (
             cf, naotxt, naofigfile, naodatalink, nbviewerlink, amotxt, amofigfile, amodatalink, nbviewerlink)
         #newfile = open(os.path.join(ID, 'climate_forcing.tex'), 'w')
-        newfile = open(texfile, 'w')
+        newfile = open(os.path.join(ID, textfile), 'w')
+        #newfile = open(textfile, 'w')
         newfile.write(linestring)
         newfile.close()
     
