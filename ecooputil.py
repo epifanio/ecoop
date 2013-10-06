@@ -175,7 +175,7 @@ class shareUtil():
         savedir = os.path.join(os.getcwd(), ID)
         command1 = 'cp %s %s' % (notebookfile, savedir)
         newnotebook = os.path.join(savedir, notebookname)
-        command2 = 'ipython nbconvert -f html %s' % newnotebook
+        command2 = 'ipython nbconvert %s' % newnotebook
         os.system(command1)
         os.system(command2)
         if web:
