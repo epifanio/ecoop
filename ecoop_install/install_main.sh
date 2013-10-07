@@ -17,4 +17,6 @@ echo "install R"
 
 export PATH=/home/$USER/Envs/env1/bin:$PATH
 R --no-save < installRpackages.r
-R --no-save < spatialview.r
+R --no-save < install_spatial_view.r
+
+cp ipython.sh /home/$USER/Envs/env1/bin/

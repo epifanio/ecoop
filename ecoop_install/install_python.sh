@@ -154,3 +154,6 @@ mv ipython $TEMPBUILD/src
 
 ipython profile create default
 ipython profile create ecoop --ipython-dir=/home/$USER/Envs/env1/.ipython --parallel
+
+mkdir -p /home/$USER/Envs/notebooks/
+cp ipython.sh /home/$USER/Envs/env1/bin  /home/$USER/Envs/notebooks/
