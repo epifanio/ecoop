@@ -14,3 +14,7 @@ echo "install grass"
 #./install_octave.sh
 echo "install R"
 ./install_R.sh
+
+export PATH=/home/$USER/Envs/env1/bin:$PATH
+R --no-save < installRpackages.r
+R --no-save < spatialview.r

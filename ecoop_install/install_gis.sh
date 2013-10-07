@@ -54,4 +54,7 @@ cd $TEMPBUILD
 mv shapelib-1.3.0.tar.gz $TEMPBUILD/tarball
 mv shapelib-1.3.0 $TEMPBUILD/src
 
+echo "installing pyproj"
+/home/$USER/Envs/env1/bin/pip install pyproj >> pip.log
+
 
