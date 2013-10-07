@@ -87,6 +87,18 @@ cd $TEMPBUILD
 mv netcdf-4.3.0.tar.gz $TEMPBUILD/tarball
 mv netcdf-4.3.0 $TEMPBUILD/src
 
+
+wget ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.1.24.tar.gz
+tar -zxf udunits-2.1.24.tar.gz
+cd udunits-2.1.24
+./configure --prefix=/home/$USER/Envs/env1 >> ../udunits_configure.log
+make -j 8
+make install
+cd $TEMPBUILD
+mv udunits-2.1.24.tar.gz $TEMPBUILD/tarball
+mv udunits-2.1.24 $TEMPBUILD/src
+
+
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
 cd netcdf4-python
 export HDF5_DIR=/home/$USER/Envs/env1/
@@ -108,6 +120,29 @@ echo "installing pysal"
 /home/$USER/Envs/env1/bin/pip install pysal >> pip.log
 echo "installing statsmodels"
 /home/$USER/Envs/env1/bin/pip install statsmodels  >> pip.log
+echo "installing pyke"
+/home/$USER/Envs/env1/bin/pip install pyke  >> pip.log
+echo "installing cython"
+/home/$USER/Envs/env1/bin/pip install cython  >> pip.log
+echo "installing mock"
+/home/$USER/Envs/env1/bin/pip install mock  >> pip.log
+
+
+wget --no-check-certificate -c --progress=dot:mega \
+  "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.9.16.tar.gz"
+tar xzf grib_api-1.9.16.tar.gz
+
+cd grib_api-1.9.16
+export CFLAGS="-O2 -fPIC"
+./configure --enable-python --prefix=/home/$USER/Envs/env1/
+make -j 8
+make install
+make distclean
+mv grib_api-1.9.16.tar.gz $TEMPBUILD/tarball 
+mv grib_api-1.9.16 $TEMPBUILD/src
+
+echo "/home/$USER/Envs/env1/lib/python2.7/site-packages/grib_api" > gribapi.pth
+cp gribapi.pth /home/$USER/Envs/env1/lib/python2.7/site-packages/
 
 
 git clone https://github.com/ipython/ipython
@@ -116,3 +151,6 @@ cd ipython
 rm -rf build
 cd $TEMPBUILD
 mv ipython $TEMPBUILD/src
+
+ipython profile create default
+ipython profile create ecoop --ipython-dir=/home/$USER/Envs/env1/.ipython --parallel

@@ -6,7 +6,7 @@ mkdir -p $TEMPBUILD/src
 cd $TEMPBUILD 
 export PATH=/home/$USER/Envs/env1/bin:$PATH
 
-
+echo "installing proj"
 wget http://download.osgeo.org/proj/proj-4.8.0.tar.gz
 tar -zxf proj-4.8.0.tar.gz 
 cd proj-4.8.0
@@ -17,6 +17,8 @@ make distclean > /dev/null 2>&1
 cd $TEMPBUILD
 mv proj-4.8.0.tar.gz $TEMPBUILD/tarball
 mv proj-4.8.0 $TEMPBUILD/src
+
+echo "installing geos & basemap"
 wget http://softlayer-dal.dl.sourceforge.net/project/matplotlib/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
 tar -zxf basemap-1.0.7.tar.gz
 cd basemap-1.0.7
@@ -33,9 +35,13 @@ cd $TEMPBUILD
 mv basemap-1.0.7.tar.gz $TEMPBUILD/tarball
 mv basemap-1.0.7 $TEMPBUILD/src
 
+
+echo "installing shapely"
 /home/$USER/Envs/env1/bin/pip install shapely >> pip.log
+echo "installing descartes"
 /home/$USER/Envs/env1/bin/pip install descartes >> pip.log
 
+echo "installing shapelib"
 wget http://download.osgeo.org/shapelib/shapelib-1.3.0.tar.gz
 tar -zxf shapelib-1.3.0.tar.gz
 cd shapelib-1.3.0
@@ -47,6 +53,5 @@ rm -rf build
 cd $TEMPBUILD 
 mv shapelib-1.3.0.tar.gz $TEMPBUILD/tarball
 mv shapelib-1.3.0 $TEMPBUILD/src
-
 
 
