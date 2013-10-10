@@ -16,7 +16,7 @@ eu = EU()
 #eu = shareUtil()
 class cfData():
     def __init__(self):
-        self.x = 'Hello'
+        self.x = ''
 
     def nao_get(self, url="https://climatedataguide.ucar.edu/sites/default/files/climate_index_files/nao_station_djfm.txt",
                 save=None, csvout='nao.csv'):
@@ -110,6 +110,7 @@ class cfData():
             print 'doh'
             print 'unable to fetch the data, check if %s is a valid address and data is conform to AMO spec, for info about data spec. see [1]' % url
             # try cached version / history-linked-uri
+
 
 class cfPlot():
     def plot_index(self, data, name='Index',
