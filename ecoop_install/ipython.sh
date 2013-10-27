@@ -1,9 +1,12 @@
 #!/bin/bash -l
 
-export LD_LIBRARY_PATH=/home/$USER/Envs/env1/grass-7.0.svn/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=/home/$USER/Envs/env1/grass-7.0.svn/etc/python:$PYTHONPATH
-export GISBASE="/home/$USER/Envs/env1/grass-7.0.svn/"
-export PATH="$PATH:$GISBASE/bin:$GISBASE/scripts"
+
+PREFIX=/home/$USER/Envs/env1
+
+export LD_LIBRARY_PATH=$PREFIX/grass-7.0.svn/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$PREFIX/grass-7.0.svn/etc/python:$PYTHONPATH
+export GISBASE=$PREFIX/grass-7.0.svn/
+export PATH=$PATH:$GISBASE/bin:$GISBASE/scripts
 
 export GIS_LOCK=$$
 
@@ -22,4 +25,4 @@ export GRASS_PNG_AUTO_WRITE=TRUE
 # --deep-reload
 # --ip=10.240.133.36 --port=8888
 
-ipython notebook --pylab=inline --ipython-dir=/home/$USER/Envs/env1/.ipython --profile=default --notebook-dir=/home/$USER/Envs/notebooks/ --no-browser --script
+ipython notebook --pylab=inline --ipython-dir=$PREFIX/.ipython --profile=default --notebook-dir=/home/$USER/Envs/notebooks/ --no-browser --script

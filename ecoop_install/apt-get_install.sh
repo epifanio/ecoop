@@ -1,4 +1,4 @@
-sudo apt-get install build-essential liblapack-dev libzzip-dev libssl-dev \
+sudo apt-get install -y build-essential liblapack-dev libzzip-dev libssl-dev \
 libncurses5-dev libsqlite3-dev libreadline-dev tk-dev tcl-dev \
 libfreetype6-dev libpng12-dev subversion git libxml2-dev libcurl4-gnutls-dev \
 libtiff5-dev libglu1-mesa-dev libglw1-mesa-dev \

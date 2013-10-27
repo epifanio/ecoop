@@ -8,15 +8,18 @@ optional <- c("ade4", "adehabitat", "adehabitatHR", "adehabitatHS", "adehabitatL
 
 packagelist <- core
 
+username <- Sys.getenv("USER")
+localib <- paste("/home/",username,"/Envs/env1/lib64/R/library/",sep="")
+
 for (i in packagelist) {
-	install.packages(i, repos= "http://cran.rstudio.com/", lib = "/home/ecoop/Envs/env1/lib64/R/library/", dependencies = TRUE) 
+	install.packages(i, repos= "http://cran.rstudio.com/", lib = localib, dependencies = TRUE) 
 	output <- paste("Finished installing",i,sep=" ")
 	print(output)
 }
 
 packagelist <- optional
 for (i in packagelist) {
-	install.packages(i, repos= "http://cran.rstudio.com/", lib = "/home/ecoop/Envs/env1/lib64/R/library/", dependencies = TRUE) 
+	install.packages(i, repos= "http://cran.rstudio.com/", lib = localib, dependencies = TRUE) 
 	output <- paste("Finished installing",i,sep=" ")
 	print(output)
 }

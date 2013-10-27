@@ -10,12 +10,14 @@ echo "install postgis"
 ./install_postgis.sh
 echo "install grass"
 ./install_grass.sh
-#echo "install "octave""
-#./install_octave.sh
+echo "install "octave""
+./install_octave.sh
 echo "install R"
 ./install_R.sh
 
-export PATH=/home/$USER/Envs/env1/bin:$PATH
+PREFIX=/home/$USER/Envs/env1
+
+export PATH=$PREFIX/bin:$PATH
 R --no-save < installRpackages.r
 R --no-save < install_spatial_view.r
 
