@@ -1,7 +1,7 @@
 # coding: utf-8
 ecooProvDict = {}
-IPythonNotebookRun = {}
-IPythonNotebookRun['description'] = ''
-startedAtTime = ''
-endedAtTime = ''
-wasAssociatedWith = ''
+ecooProvDict['IPythonNotebookRun'] = {}
+ecooProvDict['IPythonNotebookRun']['description'] = ''
+ecooProvDict['IPythonNotebookRun']['startedAtTime'] = ''
+ecooProvDict['IPythonNotebookRun']['endedAtTime'] = ''
+ecooProvDict['IPythonNotebookRun']['wasAssociatedWith'] = ''
