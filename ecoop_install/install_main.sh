@@ -6,8 +6,8 @@ echo "install SQL"
 ./install_sql.sh
 echo "install gdal"
 ./install_gdal.sh
-echo "install postgis"
-./install_postgis.sh
+#echo "install postgis"
+#./install_postgis.sh
 echo "install grass"
 ./install_grass.sh
 echo "install "octave""
