@@ -11,13 +11,21 @@ http://nbviewer.ipython.org/urls/raw.github.com/epifanio/ecoop/master/notebook/e
 List of external  dependencies :
 
 paramiko
+
 qrcode
+
 ipython
+
 envoy
+
 numpy 
+
 scipy
+
 statsmodels
+
 pandas 
+
 matplotlib
 
 (pip installable)
