@@ -8,24 +8,19 @@ Notebook used for the  Climate forcing UseCase :
 
 http://nbviewer.ipython.org/urls/raw.github.com/epifanio/ecoop/master/notebook/ecoop_t1.ipynb
 
-List of external  dependencies :
+List of python packages :
 
-paramiko
+* paramiko
+* qrcode
+* ipython
+* envoy
+* numpy 
+* scipy
+* statsmodels
+* pandas 
+* matplotlib
 
-qrcode
+external dependencies :
 
-ipython
-
-envoy
-
-numpy 
-
-scipy
-
-statsmodels
-
-pandas 
-
-matplotlib
-
-(pip installable)
+* latex-live
+* jist
