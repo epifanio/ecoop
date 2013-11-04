@@ -203,3 +203,7 @@ class shareUtil():
                 if is_exe(exe_file):
                     return exe_file
         return None
+
+    def getTime(self):
+        now = datetime.now()
+        return now
