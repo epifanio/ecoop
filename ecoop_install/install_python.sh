@@ -113,6 +113,10 @@ mv netcdf4-python $TEMPBUILD/src
 
 echo "installing h5py"
 $PREFIX/bin/pip install h5py >> pip.log
+echo "installing numexpr"
+$PREFIX/bin/pip install numexpr >> pip.log
+echo "installing Cython"
+$PREFIX/bin/pip install Cython >> pip.log
 echo "installing tables"
 $PREFIX/bin/pip install tables >> pip.log
 echo "installing pandas"
@@ -125,8 +129,6 @@ echo "installing statsmodels"
 $PREFIX/bin/pip install statsmodels  >> pip.log
 echo "installing pyke"
 $PREFIX/bin/pip install pyke  >> pip.log
-echo "installing cython"
-$PREFIX/bin/pip install cython  >> pip.log
 echo "installing mock"
 $PREFIX/bin/pip install mock  >> pip.log
 

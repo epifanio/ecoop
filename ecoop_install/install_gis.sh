@@ -58,7 +58,9 @@ cd $TEMPBUILD
 mv shapelib-1.3.0.tar.gz $TEMPBUILD/tarball
 mv shapelib-1.3.0 $TEMPBUILD/src
 
+
 echo "installing pyproj"
 $PREFIX/bin/pip install pyproj >> pip.log
-
+echo "installing fiona"
+$PREFIX/bin/pip install fiona >> pip.log
 
