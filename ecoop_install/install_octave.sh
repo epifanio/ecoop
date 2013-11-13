@@ -147,16 +147,17 @@ cd $TEMPBUILD
 mv glpk-4.52.tar.gz $TEMPBUILD/tarball
 mv glpk-4.52 $TEMPBUILD/src
 
+
 # non va! :(
-wget http://www.qhull.org/download/qhull-2012.1-src.tgz
-tar qhull-2012.1-src.tgz
-cd qhull-2012.1-src
-make -j 8 >> ../qhull_build.log
-cp lib/* $PREFIX/lib/
-make distclean > /dev/null 2>&1
-cd $TEMPBUILD
-mv qhull-2012.1-src.tgz $TEMPBUILD/tarball
-mv qhull-2012.1-src $TEMPBUILD/src
+#wget http://www.qhull.org/download/qhull-2012.1-src.tgz
+#tar qhull-2012.1-src.tgz
+#cd qhull-2012.1-src
+#make -j 8 >> ../qhull_build.log
+#cp lib/* $PREFIX/lib/
+#make distclean > /dev/null 2>&1
+#cd $TEMPBUILD
+#mv qhull-2012.1-src.tgz $TEMPBUILD/tarball
+#mv qhull-2012.1-src $TEMPBUILD/src
 
 wget ftp://ftp.gnu.org/gnu/octave/octave-3.6.4.tar.gz
 tar -zxf octave-3.6.4.tar.gz
@@ -165,7 +166,7 @@ CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --with-hdf5-include
 make -j 8 >> ../octave_build.log
 make install >> ../octave_install.log
 make distclean > /dev/null 2>&1
-cd $TEMPBUILD 
+cd $TEMPBUILD
 mv octave-3.6.4.tar.gz $TEMPBUILD/tarball
 mv octave-3.6.4 $TEMPBUILD/src
 

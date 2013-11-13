@@ -8,4 +8,7 @@ gem install jist jist >> yuminstall_gems.log
 #
 # evaluate possibility to install pandoc via repository, it is needed by IPython nbconver
 #
-
+# wget http://geofemengineering.it//oracle-xe-11.2.0-1.0.x86_64.rpm
+# wget http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2
+# bzip2 ghc-7.6.3-x86_64-unknown-linux.tar.bz2
+# tar -xvf ghc-7.6.3-x86_64-unknown-linux.tar

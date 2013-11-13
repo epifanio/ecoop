@@ -66,6 +66,11 @@ echo "installing envoy"
 $PREFIX/bin/pip install envoy  >> pip.log
 echo "installing qrcode"
 $PREFIX/bin/pip install qrcode  >> pip.log
+echo "installing requests"
+$PREFIX/bin/pip install requests  >> pip.log
+echo "installing owslib"
+$PREFIX/bin/pip install owslib  >> pip.log
+
 
 
 cd $TEMPBUILD
