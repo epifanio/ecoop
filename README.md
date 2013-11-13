@@ -6,7 +6,10 @@ A collecton of python scripts for geo-science plus some utilities to be used fro
 
 Notebook used for the  Climate forcing UseCase :
 
-http://nbviewer.ipython.org/urls/raw.github.com/epifanio/ecoop/master/notebook/ecoop_t1.ipynb
+
+- [clean](http://nbviewer.ipython.org/urls/raw.github.com/epifanio/ecoop/master/notebook/ecoop_t1.ipynb)
+
+- [executed](http://nbviewer.ipython.org/7307864)
 
 List of python packages :
 
