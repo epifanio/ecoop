@@ -118,6 +118,7 @@ ecooProvDict['Organization']['mbox'] = ''
 ecooProvDict['Organization']['phone'] = ''
 ecooProvDict['Organization']['address'] = ''
 ecooProvDict['Organization']['homepageURL'] = ''
+ecooProvDict['Organization']['hasMemberOf'] = {}
 ecooProvDict['Organization']['hasMemberOf']['Person'] = ''
 ecooProvDict['Organization']['hasMemberOf']['Group'] = ''
 
