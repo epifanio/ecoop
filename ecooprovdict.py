@@ -129,6 +129,7 @@ ecooProvDict['Group']['mbox'] = ''
 ecooProvDict['Group']['phone'] = ''
 ecooProvDict['Group']['address'] = ''
 ecooProvDict['Group']['homepageURL'] = ''
+ecooProvDict['Group']['hasMemberOf'] = {}
 ecooProvDict['Group']['hasMemberOf']['Person'] = ''
 ecooProvDict['Group']['hasMemberOf']['Group'] = ''
 ecooProvDict['Group']['isMemberOf']['Organization'] = ''
