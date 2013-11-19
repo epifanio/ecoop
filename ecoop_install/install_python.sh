@@ -1,5 +1,6 @@
 # PYTHON
 
+CURRENTDIR=${PWD}
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
@@ -162,6 +163,7 @@ export CFLAGS="-O2 -fPIC"
 make -j 8
 make install
 make distclean
+cd $TEMPBUILD
 mv grib_api-1.9.16.tar.gz $TEMPBUILD/tarball 
 mv grib_api-1.9.16 $TEMPBUILD/src
 
@@ -180,4 +182,4 @@ ipython profile create default
 ipython profile create ecoop --ipython-dir=$PREFIX/.ipython --parallel
 
 mkdir -p /home/$USER/Envs/notebooks/
-cp ipython.sh $PREFIX/bin  /home/$USER/Envs/notebooks/
+cp $CURRENTDIR/ipython.sh $PREFIX/bin  /home/$USER/Envs/notebooks/
