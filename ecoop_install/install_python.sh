@@ -116,6 +116,11 @@ rm -rf build
 cd $TEMPBUILD
 mv netcdf4-python $TEMPBUILD/src
 
+
+export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe/
+export LD_LIBRARY_PATH=/u01/app/oracle/product/11.2.0/xe/lib:$LD_LIBRARY_PATH
+
+
 echo "installing h5py"
 $PREFIX/bin/pip install h5py >> pip.log
 echo "installing numexpr"
