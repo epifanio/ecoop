@@ -76,7 +76,7 @@ $PREFIX/bin/pip install owslib  >> pip.log
 cd $TEMPBUILD
 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
 tar -zxf hdf5-1.8.12.tar.gz
-cd hdf5-1.8.11
+cd hdf5-1.8.12
 ./configure --prefix=$PREFIX/ --enable-shared --enable-hl >> ../hdf5_configure.log
 make -j 8 >> ../hdf5_build.log
 make install >> ../hdf5_install.log
