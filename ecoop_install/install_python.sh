@@ -74,7 +74,7 @@ $PREFIX/bin/pip install owslib  >> pip.log
 
 
 cd $TEMPBUILD
-wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.11.tar.gz
+wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
 tar -zxf hdf5-1.8.11.tar.gz 
 cd hdf5-1.8.11
 ./configure --prefix=$PREFIX/ --enable-shared --enable-hl >> ../hdf5_configure.log
@@ -119,6 +119,15 @@ mv netcdf4-python $TEMPBUILD/src
 
 export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe/
 export LD_LIBRARY_PATH=/u01/app/oracle/product/11.2.0/xe/lib:$LD_LIBRARY_PATH
+wget http://softlayer-dal.dl.sourceforge.net/project/cx-oracle/5.1.2/cx_Oracle-5.1.2.tar.gz
+tar -zxf cx_Oracle-5.1.2.tar.gz
+cd cx_Oracle-5.1.2
+$PREFIX/bin/python setup.py install >> ../pyinstall.log
+rm -rf build
+cd $TEMPBUILD
+mv cx_Oracle-5.1.2.tar.gz $TEMPBUILD/tarball
+mv cx_Oracle-5.1.2 $TEMPBUILD/src
+
 
 
 echo "installing h5py"
