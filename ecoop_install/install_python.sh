@@ -75,15 +75,15 @@ $PREFIX/bin/pip install owslib  >> pip.log
 
 cd $TEMPBUILD
 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
-tar -zxf hdf5-1.8.11.tar.gz 
+tar -zxf hdf5-1.8.12.tar.gz
 cd hdf5-1.8.11
 ./configure --prefix=$PREFIX/ --enable-shared --enable-hl >> ../hdf5_configure.log
 make -j 8 >> ../hdf5_build.log
 make install >> ../hdf5_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
-mv hdf5-1.8.11.tar.gz $TEMPBUILD/tarball
-mv hdf5-1.8.11 $TEMPBUILD/src
+mv hdf5-1.8.12.tar.gz $TEMPBUILD/tarball
+mv hdf5-1.8.12 $TEMPBUILD/src
 wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.0.tar.gz
 tar -zxf netcdf-4.3.0.tar.gz
 cd netcdf-4.3.0
