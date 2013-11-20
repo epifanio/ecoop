@@ -12,7 +12,7 @@ export PATH=$PREFIX/bin:$PATH
 wget http://download.osgeo.org/gdal/1.10.1/gdal-1.10.1.tar.gz
 tar -zxf gdal-1.10.1.tar.gz
 cd gdal-1.10.1
-CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/ --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PREFIX/bin/python --prefix=$PREFIX/ --with-netcf=$PREFIX/ >> ../gdal_configure.log
+CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/ --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PREFIX/bin/python --prefix=$PREFIX/ --with-netcdf=$PREFIX/ >> ../gdal_configure.log
 make -j 8 >> ../gdal_build.log
 make install >> ../gdal_install.log
 make distclean > /dev/null 2>&1
