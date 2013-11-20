@@ -24,7 +24,7 @@ export GRASS_PNG_AUTO_WRITE=TRUE
 
 export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe/
 export LD_LIBRARY_PATH=/u01/app/oracle/product/11.2.0/xe/lib:$LD_LIBRARY_PATH
-export PATH=/u01/app/oracle/product/11.2.0/xe:/home/$USER/Envs/env1/bin:$PATH
+export PATH=/u01/app/oracle/product/11.2.0/xe:/home/$USER/Envs/env1/bin:/home/$USER/Envs/env1/cabal/bin:$PATH
 
 
 # --deep-reload
