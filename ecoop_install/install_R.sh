@@ -25,8 +25,6 @@ mv R-3.0.2.tar.gz $TEMPBUILD/tarball
 mv R-3.0.2 $TEMPBUILD/src
 ln -s /usr/lib64/gcj-4.4.4/*.so $PREFIX/lib
 mkdir -p $PREFIX/lib/R/site-library/
-$PREFIX/bin/R CMD javareconf -e
-export LD_LIBRARY_PATH=/usr/lib64/gcj-4.4.4/
 
 cd $CURRENTDIR
 
@@ -34,6 +32,8 @@ export PATH=$PREFIX/bin/
 echo "installing rpy2"
 $PREFIX/bin/pip install rpy2  >> pip.log
 
+$PREFIX/bin/R CMD javareconf -e
+export LD_LIBRARY_PATH=/usr/lib64/gcj-4.4.4/
 
 #R --no-save < cemtos_build/installRpackages.r
 #R --no-save < cemtos_build/test.r
