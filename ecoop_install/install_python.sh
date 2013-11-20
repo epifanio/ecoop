@@ -151,6 +151,8 @@ echo "installing pyke"
 $PREFIX/bin/pip install pyke  >> pip.log
 echo "installing mock"
 $PREFIX/bin/pip install mock  >> pip.log
+echo "installing sqlalchemy"
+$PREFIX/bin/pip install sqlalchemy  >> pip.log
 
 
 wget --no-check-certificate -c --progress=dot:mega \
