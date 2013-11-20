@@ -182,4 +182,4 @@ ipython profile create default
 ipython profile create ecoop --ipython-dir=$PREFIX/.ipython --parallel
 
 mkdir -p /home/$USER/Envs/notebooks/
-cp $CURRENTDIR/ipython.sh $PREFIX/bin  /home/$USER/Envs/notebooks/
+cp $CURRENTDIR/ipython.sh $PREFIX/bin
