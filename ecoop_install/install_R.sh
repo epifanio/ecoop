@@ -28,9 +28,9 @@ mkdir -p $PREFIX/lib/R/site-library/
 
 cd $CURRENTDIR
 
-export PATH=$PREFIX/bin/
-echo "installing rpy2"
-$PREFIX/bin/pip install rpy2  >> pip.log
+#export PATH=$PREFIX/bin/
+#echo "installing rpy2"
+#$PREFIX/bin/pip install rpy2  >> pip.log
 
 $PREFIX/bin/R CMD javareconf -e
 export LD_LIBRARY_PATH=/usr/lib64/gcj-4.4.4/
