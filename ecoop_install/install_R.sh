@@ -1,3 +1,6 @@
+
+CURRENTDIR=${PWD}
+
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
@@ -25,7 +28,7 @@ mkdir -p $PREFIX/lib/R/site-library/
 $PREFIX/bin/R CMD javareconf -e
 export LD_LIBRARY_PATH=/usr/lib64/gcj-4.4.4/
 
-cd
+cd $CURRENTDIR
 
 export PATH=$PREFIX/bin/
 echo "installing rpy2"
