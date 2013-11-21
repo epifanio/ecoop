@@ -7,7 +7,7 @@ cp -R Envs $1/
 
 echo 'export PATH=''"'"$1"'/Envs/env1/bin:'"$1"'/Envs/env1/cabal/bin:$PATH''"' >> $HOME/.bashrc
 echo 'export LD_LIBRARY_PATH=''"'"$1"'/Envs/env1/lib/:$LD_LIBRARY_PATH''"' >> $HOME/.bashrc
-echo "@reboot $1/Envs/env1/bin/ipython.sh &" >> crontab.txt
+echo "@reboot sh $1/Envs/env1/bin/ipython.sh &" >> crontab.txt
 crontab crontab.txt
 rm -rf crontab.txt
 rm -rf $1/Envs/env1/bin/python
