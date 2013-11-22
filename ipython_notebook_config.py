@@ -1,6 +1,5 @@
 # Configuration file for ipython-notebook.
 
-# marshall
 
 c = get_config()
 
