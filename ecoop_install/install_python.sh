@@ -72,7 +72,12 @@ $PREFIX/bin/pip install requests  >> pip.log
 echo "installing owslib"
 $PREFIX/bin/pip install owslib  >> pip.log
 
-
+echo "installing husl"
+$PREFIX/bin/pip install husl  >> pip.log
+echo "installing moss"
+$PREFIX/bin/pip install moss  >> pip.log
+echo "installing seaborn"
+$PREFIX/bin/pip install seaborn  >> pip.log
 
 cd $TEMPBUILD
 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
