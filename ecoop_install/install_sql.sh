@@ -34,6 +34,9 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
+
+
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
@@ -51,7 +54,7 @@ wget http://www.gaia-gis.it/gaia-sins/freexl-1.0.0f.tar.gz
 tar -zxf freexl-1.0.0f.tar.gz
 cd freexl-1.0.0f
 ./configure --prefix=$PREFIX/ >> ../freexl_configure.log
-make -j 8 >> ../freexl_build.log
+make -j $np >> ../freexl_build.log
 make install >> ../freexl_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
@@ -64,7 +67,7 @@ wget http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.1.1.
 tar -zxf libspatialite-4.1.1.tar.gz
 cd libspatialite-4.1.1
 CPPFLAGS=-I$PREFIX/include/ LDFLAGS=-L$PREFIX/lib ./configure --with-geosconfig=$PREFIX/bin/geos-config --prefix=$PREFIX/ >> ../libspatialite_configure.log
-make -j 8 >> ../libspatialite_build.log
+make -j $np >> ../libspatialite_build.log
 make install >> ../libspatialite_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
@@ -77,7 +80,7 @@ mv libspatialite-4.1.1 $TEMPBUILD/src
 #tar -zxf postgresql-9.3.0.tar.gz
 #cd postgresql-9.3.0
 #./configure --prefix=$PREFIX/ >> ../postgresql_configure.log
-#make -j 8 >> ../postgresql_build.log
+#make -j $np >> ../postgresql_build.log
 #make install >> ../postgresql_install.log
 #make distclean > /dev/null 2>&1
 #cd $TEMPBUILD

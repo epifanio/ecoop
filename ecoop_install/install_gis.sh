@@ -34,6 +34,8 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
+
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
@@ -51,7 +53,7 @@ wget http://download.osgeo.org/proj/proj-4.8.0.tar.gz
 tar -zxf proj-4.8.0.tar.gz 
 cd proj-4.8.0
 ./configure --prefix=$PREFIX/ >> ../proj_configure.log
-make -j 8 >> ../proj_build.log
+make -j $np >> ../proj_build.log
 make install >> ../proj_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
@@ -65,7 +67,7 @@ cd basemap-1.0.7
 cd geos-3.3.3
 export GEOS_DIR=$PREFIX/
 ./configure --prefix=$GEOS_DIR >> ../../geos_configure.log
-make -j 8 >> ../../geos_build.log
+make -j $np >> ../../geos_build.log
 make install >> ../../geos_install.log
 make distclean > /dev/null 2>&1
 cd ..

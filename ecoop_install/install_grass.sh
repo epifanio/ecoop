@@ -34,6 +34,8 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
+
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
@@ -53,7 +55,7 @@ export LD_LIBRARY_PATH=$PREFIX/lib/
 ./configure --with-freetype-includes=/usr/include/freetype2/ --with-geos=$PREFIX/bin/geos-config --with-netcdf=$PREFIX/bin/nc-config --with-proj-share=$PREFIX/share/proj --with-sqlite --with-pthread --with-readline --with-lapack --with-blas --prefix=$PREFIX --with-proj-includes=$PREFIX/include/ --with-proj-libs=$PREFIX/lib >> ../grass_configure.log
 # --with-postgres=yes --with-postgres-includes=$PREFIX/include/ --with-postgres-libs=$PREFIX/lib
 
-make -j 8 >> ../grass_build.log
+make -j $np >> ../grass_build.log
 make install >> ../grass_install.log 
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD

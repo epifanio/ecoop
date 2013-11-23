@@ -35,6 +35,8 @@
 ###############################################################################
 
 
+﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
+
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
@@ -53,7 +55,7 @@ wget http://download.osgeo.org/postgis/source/postgis-2.1.0.tar.gz
 tar -zxf postgis-2.1.0.tar.gz
 cd postgis-2.1.0
 ./configure --prefix=$PREFIX/ --with-projdir=$PREFIX/ --with-gdalconfig=$PREFIX/bin/gdal-config --with-projdir=$PREFIX/ >> ../postgis_configure.log
-make -j 8 >> ../postgis_build.log
+make -j $np >> ../postgis_build.log
 make install >> ../postgis_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD

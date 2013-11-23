@@ -34,6 +34,8 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
+
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
@@ -50,7 +52,7 @@ tar -zxf gdal-1.10.1.tar.gz
 cd gdal-1.10.1
 #--with-pg=$PREFIX/bin/pg_config
 CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PREFIX/bin/python --prefix=$PREFIX/ --with-netcdf=$PREFIX/ >> ../gdal_configure.log
-make -j 8 >> ../gdal_build.log
+make -j $np >> ../gdal_build.log
 make install >> ../gdal_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD

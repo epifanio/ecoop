@@ -34,6 +34,7 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
 
 CURRENTDIR=${PWD}
 
@@ -53,7 +54,7 @@ wget http://cran.us.r-project.org/src/base/R-3/R-3.0.2.tar.gz
 tar -zxf R-3.0.2.tar.gz
 cd R-3.0.2
 CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX/ --with-blas --with-lapack --enable-R-shlib >> ../R_configure.log
-make -j 8 >> ../R_build.log
+make -j $np >> ../R_build.log
 make install >> ../R_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
