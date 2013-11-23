@@ -34,6 +34,7 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
 
 # PYTHON
 
@@ -53,7 +54,7 @@ wget http://python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz
 tar xpvf Python-2.7.6.tar.xz
 cd Python-2.7.6
 ./configure --prefix=$PREFIX >> ../python_configure.log
-make -j 8 >> ../python_build.log
+make -j $np >> ../python_build.log
 make altinstall >> ../python_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
@@ -121,7 +122,7 @@ wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
 tar -zxf hdf5-1.8.12.tar.gz
 cd hdf5-1.8.12
 ./configure --prefix=$PREFIX/ --enable-shared --enable-hl >> ../hdf5_configure.log
-make -j 8 >> ../hdf5_build.log
+make -j $np >> ../hdf5_build.log
 make install >> ../hdf5_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
@@ -131,7 +132,7 @@ wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.0.tar.gz
 tar -zxf netcdf-4.3.0.tar.gz
 cd netcdf-4.3.0
 LDFLAGS=-L$PREFIX/lib CPPFLAGS=-I$PREFIX/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=$PREFIX >> ../netcdf_configure.log
-make -j 8 >> ../netcdf_build.log
+make -j $np >> ../netcdf_build.log
 make install >> ../netcdf_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
@@ -143,7 +144,7 @@ wget ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.1.24.tar.gz
 tar -zxf udunits-2.1.24.tar.gz
 cd udunits-2.1.24
 ./configure --prefix=$PREFIX >> ../udunits_configure.log
-make -j 8
+make -j $np
 make install
 cd $TEMPBUILD
 mv udunits-2.1.24.tar.gz $TEMPBUILD/tarball
@@ -204,7 +205,7 @@ tar xzf grib_api-1.9.16.tar.gz
 cd grib_api-1.9.16
 export CFLAGS="-O2 -fPIC"
 ./configure --enable-python --prefix=$PREFIX/
-make -j 8
+make -j $np
 make install
 make distclean
 cd $TEMPBUILD
