@@ -34,7 +34,8 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
-﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
+
+np=`cat /proc/cpuinfo | grep processor | wc -l`
 
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
