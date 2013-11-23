@@ -49,16 +49,16 @@ mkdir -p $TEMPBUILD/src
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
 
-wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tar.bz2
-tar xf Python-2.7.5.tar.bz2
-cd Python-2.7.5
+wget http://python.org/ftp/python/2.7.6/Python-2.7.6.tar.bz2
+tar xpvf Python-2.7.6.tar.bz2
+cd Python-2.7.6
 ./configure --prefix=$PREFIX >> ../python_configure.log
 make -j 8 >> ../python_build.log
 make altinstall >> ../python_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
-mv Python-2.7.5.tar.bz2 $TEMPBUILD/tarball
-mv Python-2.7.5 $TEMPBUILD/src
+mv Python-2.7.6.tar.bz2 $TEMPBUILD/tarball
+mv Python-2.7.6 $TEMPBUILD/src
 
 export PATH=$PREFIX/bin:$PATH
 
