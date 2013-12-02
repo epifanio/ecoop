@@ -34,6 +34,7 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+yum -y update
 yum -y install gcc gcc-c++ gcc-gfortran blas-devel lapack-devel zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel \
 freetype-devel libpng-devel svn git python-devel ruby texinfo texinfo-tex \
 libxml2-devel libcurl-devel libtiff-devel mesa-libGLU-devel mesa-libGLw-devel cairo-devel pcre-devel ImageMagick-devel \
