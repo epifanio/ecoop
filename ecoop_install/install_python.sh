@@ -196,6 +196,8 @@ echo "installing mock"
 $PREFIX/bin/pip install mock  >> pip.log
 echo "installing sqlalchemy"
 $PREFIX/bin/pip install sqlalchemy  >> pip.log
+echo "installing tempdir"
+$PREFIX/bin/pip install tempdir  >> pip.log
 
 
 wget --no-check-certificate -c --progress=dot:mega \
@@ -214,6 +216,13 @@ mv grib_api-1.9.16 $TEMPBUILD/src
 
 echo "$PREFIX/lib/python2.7/site-packages/grib_api" > gribapi.pth
 cp gribapi.pth $PREFIX/lib/python2.7/site-packages/
+
+#git clone https://github.com/activepapers/activepapers-python.git
+#cd activepapers-python
+#$PREFIX/bin/python setup.py install >> ../pyinstall.log
+#rm -rf build
+#cd $TEMPBUILD
+#mv activepapers-python $TEMPBUILD/src
 
 
 git clone https://github.com/ipython/ipython
