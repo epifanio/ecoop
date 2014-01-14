@@ -75,28 +75,29 @@ mv libspatialite-4.1.1.tar.gz $TEMPBUILD/tarball
 mv libspatialite-4.1.1 $TEMPBUILD/src
 
 
-#echo "installing postgresql"
-#wget http://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.0.tar.gz
-#tar -zxf postgresql-9.3.0.tar.gz
-#cd postgresql-9.3.0
-#./configure --prefix=$PREFIX/ >> ../postgresql_configure.log
-#make -j $np >> ../postgresql_build.log
-#make install >> ../postgresql_install.log
-#make distclean > /dev/null 2>&1
-#cd $TEMPBUILD
-#mv postgresql-9.3.0.tar.gz $TEMPBUILD/tarball
-#mv postgresql-9.3.0 $TEMPBUILD/src
+echo "installing postgresql"
+wget http://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.0.tar.gz
+tar -zxf postgresql-9.3.0.tar.gz
+cd postgresql-9.3.0
+./configure --prefix=$PREFIX/ >> ../postgresql_configure.log
+make -j $np >> ../postgresql_build.log
+make install >> ../postgresql_install.log
+make distclean > /dev/null 2>&1
+cd $TEMPBUILD
+mv postgresql-9.3.0.tar.gz $TEMPBUILD/tarball
+mv postgresql-9.3.0 $TEMPBUILD/src
 
-#$PREFIX/bin/pip install psycopg2 
-#python setup.py build_ext --pg-config /path/to/pg_config build ...
+$PREFIX/bin/pip install psycopg2 
+python setup.py build_ext --pg-config /path/to/pg_config build ...
 
-#echo "installing psycopg2"
-#wget http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.1.tar.gz
-#tar -zxf psycopg2-2.5.1.tar.gz
-#cd psycopg2-2.5.1
-#$PREFIX/bin/python setup.py build_ext --pg-config $PREFIX/bin/pg_config 
-#$PREFIX/bin/python setup.py install >> ../pyinstall.log
-#rm -rf build
-#cd $TEMPBUILD 
-#mv psycopg2-2.5.1.tar.gz $TEMPBUILD/tarball
-#mv psycopg2-2.5.1 $TEMPBUILD/src
+echo "installing psycopg2"
+wget http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.1.tar.gz
+tar -zxf psycopg2-2.5.1.tar.gz
+cd psycopg2-2.5.1
+$PREFIX/bin/python setup.py build_ext --pg-config $PREFIX/bin/pg_config 
+$PREFIX/bin/python setup.py install >> ../pyinstall.log
+rm -rf build
+cd $TEMPBUILD 
+mv psycopg2-2.5.1.tar.gz $TEMPBUILD/tarball
+mv psycopg2-2.5.1 $TEMPBUILD/src
+

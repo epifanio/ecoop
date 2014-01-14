@@ -42,21 +42,23 @@ echo "install SQL"
 ./install_sql.sh
 echo "install gdal"
 ./install_gdal.sh
-#echo "install postgis"
-#./install_postgis.sh
+echo "install postgis"
+./install_postgis.sh
 echo "install grass"
 ./install_grass.sh
 echo "install "octave""
 ./install_octave.sh
 echo "install R"
 ./install_R.sh
+echo "install R libs"
+./install_R_lib.sh
 
-PREFIX=/home/$USER/Envs/env1
+#PREFIX=/home/$USER/Envs/env1
 
-export PATH=$PREFIX/bin:$PATH
-R --no-save < installRpackages.r
-R --no-save < install_spatial_view.r
+#export PATH=$PREFIX/bin:$PATH
+#R --no-save < installRpackages.r
+#R --no-save < install_spatial_view.r
 
 cp ipython.sh /home/$USER/Envs/env1/bin/
 
-./install_R_lib.sh
+#./install_R_lib.sh

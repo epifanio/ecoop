@@ -67,7 +67,8 @@ mkdir -p $PREFIX/pgsql/data
 
 $PREFIX/bin/initdb -D $PREFIX/pgsql/data/
 $PREFIX/bin/postmaster -D $PREFIX/pgsql/data >pglogfile 2>&1 &
-$PREFIX/bin/pg_ctl -D /home/ecoop/Envs/env1/pgsql/data/ -l logfile start
+$PREFIX/bin/pg_ctl -D /home/$USER/Envs/env1/pgsql/data/ -l logfile start
 $PREFIX/bin/createdb test >> pg.log
 $PREFIX/bin/psql -f $PREFIX/share/postgresql/contrib/postgis-2.1/postgis.sql -d test >> pg.log
-$PREFIX/bin/psql -f /home/$USER/Envs/env1/share/postgresql/contrib/postgis-2.1/spatial_ref_sys.sql -d test >> pg.log/env1/share/postgresql/contrib/postgis-2.1/spatial_ref_sys.sql -d test >> pg.log
+$PREFIX/bin/psql -f /home/$USER/Envs/env1/share/postgresql/contrib/postgis-2.1/spatial_ref_sys.sql -d test >> pg.log
+

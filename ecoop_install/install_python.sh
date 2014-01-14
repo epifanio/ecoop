@@ -95,8 +95,17 @@ echo "installing scipy"
 $PREFIX/bin/pip install scipy  >> pip.log
 echo "installing sphinx"
 $PREFIX/bin/pip install sphinx  >> pip.log
+
 echo "installing matplotlib"
-$PREFIX/bin/pip install matplotlib  >> pip.log
+git clone https://github.com/matplotlib/matplotlib.git
+cd matplotlib
+$PREFIX/bin/python setup.py install
+cd ..
+mv matplotlib $TEMPBUILD/src
+
+#echo "installing matplotlib"
+#$PREFIX/bin/pip install matplotlib  >> pip.log
+
 echo "installing pyzmq"
 $PREFIX/bin/pip install pyzmq  >> pip.log
 echo "installing tornado"
@@ -199,6 +208,14 @@ $PREFIX/bin/pip install sqlalchemy  >> pip.log
 echo "installing tempdir"
 $PREFIX/bin/pip install tempdir  >> pip.log
 
+echo "installing pycsw"
+$PREFIX/bin/pip install pycsw  >> pip.log
+
+
+echo "installing sympy"
+$PREFIX/bin/pip install sympy  >> pip.log
+
+
 
 wget --no-check-certificate -c --progress=dot:mega \
   "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.9.16.tar.gz"
@@ -217,13 +234,36 @@ mv grib_api-1.9.16 $TEMPBUILD/src
 echo "$PREFIX/lib/python2.7/site-packages/grib_api" > gribapi.pth
 cp gribapi.pth $PREFIX/lib/python2.7/site-packages/
 
-#git clone https://github.com/activepapers/activepapers-python.git
-#cd activepapers-python
-#$PREFIX/bin/python setup.py install >> ../pyinstall.log
-#rm -rf build
-#cd $TEMPBUILD
-#mv activepapers-python $TEMPBUILD/src
+git clone https://github.com/activepapers/activepapers-python.git
+cd activepapers-python
+$PREFIX/bin/python setup.py install >> ../pyinstall.log
+rm -rf build
+cd $TEMPBUILD
+mv activepapers-python $TEMPBUILD/src
 
+echo "installing scikit-learn"
+$PREFIX/bin/pip install scikit-learn  >> pip.log
+
+echo "installing scikit-image"
+$PREFIX/bin/pip install scikit-image  >> pip.log
+
+echo "installing sympy"
+$PREFIX/bin/pip install sympy  >> pip.log
+
+echo "install mpld3"
+git clone https://github.com/jakevdp/mpld3.git
+cd mpld3
+$PREFIX/bin/python setup.py install
+rm -rf build
+cd $TEMPBUILD
+mv mpld3 $TEMPBUILD/src
+
+
+git clone https://github.com/ContinuumIO/bokeh.git
+cd bokeh
+$PREFIX/bin/python setup.py install >> ../pyinstall.log
+cd ..
+mv bokeh $TEMPBUILD/src
 
 git clone https://github.com/ipython/ipython
 cd ipython
