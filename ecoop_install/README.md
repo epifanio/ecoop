@@ -1,4 +1,3 @@
-
 ## Installation instruction
 
 * download the following scripts on a linux machine (CentOS-64 bit) :
@@ -7,14 +6,16 @@
 [install_epilib.sh](wget https://raw.github.com/epifanio/ecoop/master/ecoop_install/install_epilib.sh)
 
 * install main dependecies (log in as  ROOT) ####
-
+    
+    {
     su
-    # password for root
+    #password for root
     # make the script yuminstall.sh “executable” 
     chmod a+x yuminstall.sh
     # run the script :
     ./yuminstall.sh
     exit
+    }
 
 * download and install the local environment (log in as STANDARD USER) 
 
