@@ -31,7 +31,7 @@
 
 NOTE :
 
-* The script has to download and uncompress a 1.5GB tar.gz file, will take almost 1h to download.
+* The script has to download and uncompress a 1.5GB tar.gz file.
 
-* This in “alpha” state, i’m actively working on its improvement to correct bugs, add new-tools etc ..
-So to signal a bug or if you feel a missed R package or any other software should be added... please open an isse. 
+* The development is in “alpha” state, i’m actively working on its improvement to correct bugs, add new features/tools, improve documentations etc ..
+If you find bugs or if you think of a missed, please open an isse. 
