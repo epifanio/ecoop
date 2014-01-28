@@ -34,4 +34,4 @@ NOTE :
 * The script has to download and uncompress a 1.5GB tar.gz file.
 
 * The development is in “alpha” state, i’m actively working on its improvement to correct bugs, add new features/tools, improve documentations etc ..
-If you find bugs or if you think of a missed, please open an isse. 
+If you find bugs or if you think of a missed, please open an issue. 
