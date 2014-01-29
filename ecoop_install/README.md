@@ -6,7 +6,7 @@
 
     [install_epilib.sh](wget https://raw.github.com/epifanio/ecoop/master/ecoop_install/install_epilib.sh)
 
-* install main dependecies (log in as  ROOT) ####
+* install main dependecies (log in as  ROOT)
     
 ```
     su
