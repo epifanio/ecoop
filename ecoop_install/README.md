@@ -18,7 +18,7 @@
     exit
 ```
 
-* download and install the local environment (log in as normal USER) 
+* download and install the local environment (log in as non-root USER) 
 
 * chose a directory where you want the local environment installed, better if the directory is accessible from more users e.g.:  /home/localenv  (be sure the directory exist and is writable)
 
