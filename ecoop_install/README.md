@@ -28,7 +28,25 @@
     ./install_epilib.sh /home/localenv
 ```
 
-### The installation script  add a *Crontab instruction* to run the IPython notebook service at each reboot
+### Start/Stop the service :
+
+The installation script  add a *Crontab instruction* to run the IPython notebook service at each reboot, to start the service manually run :
+
+```
+sh Installation-PATH/Envs/env1/bin/ipython.sh
+```
+to stop :
+```
+    pkill -9 ipython.sh
+```
+
+
+NOTE :
+
+* The script has to download and uncompress a 1.5GB tar.gz file.
+
+* The development is in “alpha” state, i’m actively working on its improvement to correct bugs, add new features/tools, improve documentations etc ..
+If you find bugs or if you think of a missed, please open an issue. 
 
 ## Configuration :
 
@@ -40,9 +58,3 @@ By default the notebook server use a *default profile* , the user can customize 
 
 * documentation on how to create and customize a new profile are available   [here](http://ipython.org/ipython-doc/rel-1.1.0/interactive/public_server.html)
 
-NOTE :
-
-* The script has to download and uncompress a 1.5GB tar.gz file.
-
-* The development is in “alpha” state, i’m actively working on its improvement to correct bugs, add new features/tools, improve documentations etc ..
-If you find bugs or if you think of a missed, please open an issue. 
