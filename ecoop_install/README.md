@@ -28,6 +28,17 @@
     ./install_epilib.sh /home/localenv
 ```
 
+### The installation script  add a *Crontab instruction* to run the IPython notebook service at each reboot
+
+## Configuration :
+
+by default the notebook server use a *default profile* , the user can customize the configuration defining custom profiles and updating the run-script located in 
+
+'''
+installation/PATH/Envs/env1/bin/ipython.sh
+'''
+
+
 
 NOTE :
 
