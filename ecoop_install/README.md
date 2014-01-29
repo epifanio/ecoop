@@ -1,6 +1,6 @@
 ## Installation instruction
 
-* download the following scripts on a linux machine (CentOS-64 bit) :
+* download the following scripts on a linux machine (CentOS-64 6.x bit) :
 
     [yuminstall.sh](https://raw.github.com/epifanio/ecoop/master/ecoop_install/yuminstall.sh)
 
