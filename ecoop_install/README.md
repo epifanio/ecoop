@@ -25,7 +25,7 @@
 * run the script giving the insgtallation PATH as argument :
 
 ```
-    ./install_epilib /home/localenv
+    ./install_epilib.sh /home/localenv
 ```
 
 
