@@ -9,13 +9,13 @@
 * install main dependecies (log in as  ROOT)
     
 ```
-    su
-    #password for root
-    # make the script yuminstall.sh “executable” 
-    chmod a+x yuminstall.sh
-    # run the script :
-    ./yuminstall.sh
-    exit
+su
+#password for root
+# make the script yuminstall.sh “executable” 
+chmod a+x yuminstall.sh
+# run the script :
+./yuminstall.sh
+exit
 ```
 
 * download and install the local environment (log in as non-root USER) 
@@ -25,7 +25,7 @@
 * run the script giving the insgtallation PATH as argument :
 
 ```
-    ./install_epilib.sh /home/localenv
+./install_epilib.sh /home/localenv
 ```
 
 ### Start/Stop the service :
@@ -37,7 +37,7 @@ sh Installation-PATH/Envs/env1/bin/ipython.sh
 ```
 to stop :
 ```
-    pkill -9 ipython.sh
+pkill -9 ipython.sh
 ```
 
 
