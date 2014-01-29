@@ -258,6 +258,20 @@ rm -rf build
 cd $TEMPBUILD
 mv mpld3 $TEMPBUILD/src
 
+#https://github.com/jakevdp/ipywidgets.git
+git clone https://github.com/jakevdp/ipywidgets.git
+cd ipywidgets
+$PREFIX/bin/python setup.py install
+rm -rf build
+cd $TEMPBUILD
+mv ipywidgets $TEMPBUILD/src
+
+
+#
+# git clone https://github.com/epmoyer/ipy_table.git
+#
+# think about ipython extension / profiles (grass binding, network interfaces)
+#
 
 git clone https://github.com/ContinuumIO/bokeh.git
 cd bokeh
