@@ -32,13 +32,13 @@
 
 ## Configuration :
 
-by default the notebook server use a *default profile* , the user can customize the configuration defining custom profiles and updating the run-script located in 
+By default the notebook server use a *default profile* , the user can customize the configuration defining custom profiles and updating the run-script located in 
 
-'''
-installation/PATH/Envs/env1/bin/ipython.sh
-'''
+```
+    Installation-PATH/Envs/env1/bin/ipython.sh
+```
 
-
+* documentation on how to create and customize a new profile are available   [here](http://ipython.org/ipython-doc/rel-1.1.0/interactive/public_server.html)
 
 NOTE :
 
