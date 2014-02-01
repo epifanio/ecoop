@@ -4,7 +4,12 @@
 
     [yuminstall.sh](https://raw.github.com/epifanio/ecoop/master/ecoop_install/yuminstall.sh)
 
-    [install_epilib.sh](wget https://raw.github.com/epifanio/ecoop/master/ecoop_install/install_epilib.sh)
+    [install_epilib.sh](https://raw.github.com/epifanio/ecoop/master/ecoop_install/install_epilib.sh)
+
+```
+wget https://raw.github.com/epifanio/ecoop/master/ecoop_install/yuminstall.sh
+wget https://raw.github.com/epifanio/ecoop/master/ecoop_install/install_epilib.sh
+```
 
 * install main dependecies (log in as  ROOT)
     
@@ -25,15 +30,17 @@ exit
 * run the script giving the insgtallation PATH as argument :
 
 ```
+chmod a+x install_epilib.sh
 ./install_epilib.sh /home/localenv
 ```
 
 ### Start/Stop the service :
 
-The installation script  add a *Crontab instruction* to run the IPython notebook service at each reboot, to start the service manually run :
+The installation script  add a *Crontab instruction* to run the IPython notebook service at each reboot.
+To start the service manually run :
 
 ```
-sh Installation-PATH/Envs/env1/bin/ipython.sh
+nohup sh Installation-PATH/Envs/env1/bin/ipython.sh &
 ```
 to stop :
 ```
@@ -50,7 +57,7 @@ If you find bugs or if you think of a missed, please open an issue.
 
 ## Configuration :
 
-By default the notebook server use a *default profile* , the user can customize the configuration defining custom profiles and updating the run-script located in 
+The notebook server use a *default profile* , the user can customize the configuration defining a custom profiles and updating the run-script located in 
 
 ```
 Installation-PATH/Envs/env1/bin/ipython.sh
