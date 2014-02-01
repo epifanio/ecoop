@@ -47,7 +47,7 @@ to stop :
 pkill -9 ipython.sh
 ```
 
-## The default service will be available on [localhost](http://localhost:8888) on port 8888
+* The default service will be available on [localhost](http://localhost:8888) on port 8888
 
 NOTE :
 
