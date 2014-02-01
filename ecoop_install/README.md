@@ -47,6 +47,7 @@ to stop :
 pkill -9 ipython.sh
 ```
 
+## The default service will be available on [localhost](http://localhost:8888) on port 8888
 
 NOTE :
 
@@ -55,7 +56,7 @@ NOTE :
 * The development is in “alpha” state, i’m actively working on its improvement to correct bugs, add new features/tools, improve documentations etc ..
 If you find bugs or if you think of a missed, please open an issue. 
 
-## Configuration :
+### Custom Configuration :
 
 The notebook server use a *default profile* , the user can customize the configuration defining a custom profiles and updating the run-script located in 
 
@@ -64,4 +65,9 @@ Installation-PATH/Envs/env1/bin/ipython.sh
 ```
 
 * documentation on how to create and customize a new profile are available   [here](http://ipython.org/ipython-doc/rel-1.1.0/interactive/public_server.html)
+
+
+
+
+
 
