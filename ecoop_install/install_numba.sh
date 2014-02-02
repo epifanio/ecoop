@@ -33,79 +33,83 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
+﻿
+np=`cat /proc/cpuinfo | grep processor | wc -l`
 
-﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
-
+CURRENTDIR=${PWD}
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
 TEMPBUILD=/home/$USER/$BUILD
-
 mkdir -p $TEMPBUILD
 mkdir -p $TEMPBUILD/tarball
 mkdir -p $TEMPBUILD/src
 
-cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
 
-echo "installing proj"
-wget http://download.osgeo.org/proj/proj-4.8.0.tar.gz
-tar -zxf proj-4.8.0.tar.gz 
-cd proj-4.8.0
-./configure --prefix=$PREFIX/ >> ../proj_configure.log
-make -j $np >> ../proj_build.log
-make install >> ../proj_install.log
+cd $TEMPBUILD
+wget http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz
+tar -zxvf cmake-2.8.12.2.tar.gz 
+cd cmake-2.8.12.2
+./configure --prefix=$PREFIX
+gmake
+make install
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
-mv proj-4.8.0.tar.gz $TEMPBUILD/tarball
-mv proj-4.8.0 $TEMPBUILD/src
+mv cmake-2.8.12.2.tar.gz $TEMPBUILD/tarball
+mv cmake-2.8.12.2 $TEMPBUILD/src
 
-echo "installing geos & basemap"
-wget http://softlayer-dal.dl.sourceforge.net/project/matplotlib/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
-tar -zxf basemap-1.0.7.tar.gz
-cd basemap-1.0.7
-cd geos-3.3.3
-export GEOS_DIR=$PREFIX/
-./configure --prefix=$GEOS_DIR >> ../../geos_configure.log
-make -j $np >> ../../geos_build.log
-make install >> ../../geos_install.log
-make distclean > /dev/null 2>&1
+
+
+cd $PREFIX
+wget http://repo.continuum.io/pkgs/free/linux-64/llvm-3.2-0.tar.bz2
+tar -xjf llvm-3.2-0.tar.bz2
+rm -rf llvm-3.2-0.tar.bz2
+PATH+=$PREFIX/bin
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+export LLVM_CONFIG_PATH=$PREFIX/bin/llvm-config
+$LLVM_CONFIG_PATH --cflags # test llvm-config
+export LLVMPY_DYNLINK=1
+export CFLAGS="-Wno-strict-aliasing -Wno-unused -Wno-write-strings -Wno-unused-function"
+git clone https://github.com/hgrecco/llvmpy.git -q
+cd llvmpy ; python setup.py install -q >/dev/null ; cd ..
+#rm -rf llvmpy
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+git clone https://github.com/numba/numba.git
+cd numba
+$PREFIX/bin/pip install -r requirements.txt
+$PREFIX/bin/python setup.py install
 cd ..
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
-rm -rf build
-cd $TEMPBUILD
-mv basemap-1.0.7.tar.gz $TEMPBUILD/tarball
-mv basemap-1.0.7 $TEMPBUILD/src
+rm -rf numba
 
 
-echo "installing shapely"
-$PREFIX/bin/pip install shapely >> pip.log
-echo "installing descartes"
-$PREFIX/bin/pip install descartes >> pip.log
+#pip install Blosc
 
-echo "installing shapelib"
-wget http://download.osgeo.org/shapelib/shapelib-1.3.0.tar.gz
-tar -zxf shapelib-1.3.0.tar.gz
-cd shapelib-1.3.0
-wget http://ftp.intevation.de/users/bh/pyshapelib/pyshapelib-0.3.tar.gz
-tar -zxf pyshapelib-0.3.tar.gz
-cd pyshapelib-0.3
-$PREFIX/bin/python setup.py install >> pyinstall.log
-rm -rf build
-cd $TEMPBUILD 
-mv shapelib-1.3.0.tar.gz $TEMPBUILD/tarball
-mv shapelib-1.3.0 $TEMPBUILD/src
+#git clone https://github.com/ContinuumIO/blz.git
+#cd blz
+#python setu.py install
+#cd ..
+
+#git clone https://github.com/ContinuumIO/datashape.git
+#cd datashape
+#python setu.py install
+#cd ..
+
+#git clone https://github.com/ContinuumIO/dynd-python
+#cd dynd-python
+#mkdir libraries
+#cd libraries
+#git clone https://github.com/ContinuumIO/libdynd
+#cd ..
+#mkdir build
+#cd build
+#$PREFIX/bin/cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+#make -j $np
+#make install
 
 
-echo "installing pyproj"
-$PREFIX/bin/pip install pyproj >> pip.log
 
-echo "installing pyproj"
-git clone https://github.com/SciTools/cartopy.git
-cd cartopy
-$PREFIX/bin/python setup.py install >> pyinstall.log
-rm -rf build
-cd $TEMPBUILD 
 
 
 

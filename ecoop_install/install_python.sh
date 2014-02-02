@@ -49,11 +49,14 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
 
 wget http://python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz
 tar xpvf Python-2.7.6.tar.xz
 cd Python-2.7.6
-./configure --prefix=$PREFIX >> ../python_configure.log
+
+export CFLAGS="-fPIC"
+./configure --prefix=$PREFIX --enable-shared >> ../python_configure.log
 make -j $np >> ../python_build.log
 make altinstall >> ../python_install.log
 make distclean > /dev/null 2>&1
@@ -291,3 +294,4 @@ ipython profile create ecoop --ipython-dir=$PREFIX/.ipython --parallel
 
 mkdir -p /home/$USER/Envs/notebooks/
 cp $CURRENTDIR/ipython.sh $PREFIX/bin
+

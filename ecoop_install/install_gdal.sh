@@ -51,7 +51,7 @@ wget http://download.osgeo.org/gdal/1.10.1/gdal-1.10.1.tar.gz
 tar -zxf gdal-1.10.1.tar.gz
 cd gdal-1.10.1
 #--with-pg=$PREFIX/bin/pg_config
-CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PREFIX/bin/python --prefix=$PREFIX/ --with-netcdf=$PREFIX/ >> ../gdal_configure.log
+CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PREFIX/bin/python --with-pg=$PREFIX/bin/pg_config --prefix=$PREFIX/ --with-netcdf=$PREFIX/ >> ../gdal_configure.log
 make -j $np >> ../gdal_build.log
 make install >> ../gdal_install.log
 make distclean > /dev/null 2>&1
@@ -59,3 +59,23 @@ cd $TEMPBUILD
 mv gdal-1.10.1.tar.gz $TEMPBUILD/tarball
 mv gdal-1.10.1 $TEMPBUILD/src
 $PREFIX/bin/pip install fiona >> pip.log
+
+
+$PREFIX/bin/pip install Image >> pip.log
+
+wget http://hivelocity.dl.sourceforge.net/project/pyke/pyke/1.1.1/pyke-1.1.1.zip
+unzip pyke-1.1.1.zip
+cd pyke-1.1.1
+$PREFIX/bin/python setup.py install >> ../pyinstall.log
+rm -rf build
+cd $TEMPBUILD
+mv pyke-1.1.1 $TEMPBUILD/src
+
+$PREFIX/bin/pip install biggus >> pip.log 
+
+#git clone https://github.com/SciTools/iris.git
+#cd iris
+#$PREFIX/bin/python setup.py install >> ../pyinstall.log
+#cd ..
+#mv iris $TEMPBUILD/src
+
