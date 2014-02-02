@@ -270,9 +270,14 @@ cd $TEMPBUILD
 mv ipywidgets $TEMPBUILD/src
 
 
-#
-# git clone https://github.com/epmoyer/ipy_table.git
-#
+
+git clone https://github.com/epmoyer/ipy_table.git
+cd ipy_table
+$PREFIX/bin/python setup.py install >> ../pyinstall.log
+rm -rf build
+cd $TEMPBUILD
+mv ipy_table $TEMPBUILD/src
+
 # think about ipython extension / profiles (grass binding, network interfaces)
 #
 
