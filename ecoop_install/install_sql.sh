@@ -48,6 +48,8 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
 
 echo "installing freexl"
 wget http://www.gaia-gis.it/gaia-sins/freexl-1.0.0f.tar.gz

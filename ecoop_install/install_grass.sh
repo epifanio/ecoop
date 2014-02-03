@@ -40,6 +40,7 @@ np=`cat /proc/cpuinfo | grep processor | wc -l`
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
 
+
 TEMPBUILD=/home/$USER/$BUILD
 
 mkdir -p $TEMPBUILD
@@ -48,6 +49,9 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
+
 echo "installing grass"
 svn -q checkout https://svn.osgeo.org/grass/grass/trunk grass7_trunk
 cd grass7_trunk 

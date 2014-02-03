@@ -49,6 +49,8 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
 
 wget http://cran.us.r-project.org/src/base/R-3/R-3.0.2.tar.gz
 tar -zxf R-3.0.2.tar.gz

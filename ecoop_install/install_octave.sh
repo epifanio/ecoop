@@ -48,6 +48,8 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
 
 
 wget http://dev.gentoo.org/%7Ebicatali/distfiles/suitesparseconfig-4.0.2.tar.gz

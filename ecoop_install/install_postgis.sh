@@ -49,6 +49,8 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
 
 echo "installing postgis"
 wget http://download.osgeo.org/postgis/source/postgis-2.1.0.tar.gz
