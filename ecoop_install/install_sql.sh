@@ -52,16 +52,16 @@ export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
 
 
 echo "installing freexl"
-wget http://www.gaia-gis.it/gaia-sins/freexl-1.0.0f.tar.gz
-tar -zxf freexl-1.0.0f.tar.gz
-cd freexl-1.0.0f
+wget http://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-1.0.0g.tar.gz
+tar -zxf freexl-1.0.0g.tar.gz
+cd freexl-1.0.0g
 ./configure --prefix=$PREFIX/ >> ../freexl_configure.log
 make -j $np >> ../freexl_build.log
 make install >> ../freexl_install.log
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
-mv freexl-1.0.0f.tar.gz $TEMPBUILD/tarball
-mv freexl-1.0.0f $TEMPBUILD/src
+mv freexl-1.0.0g.tar.gz $TEMPBUILD/tarball
+mv freexl-1.0.0g $TEMPBUILD/src
 
 
 echo "installing libspatialite"
