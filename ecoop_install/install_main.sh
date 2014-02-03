@@ -42,6 +42,8 @@ echo "install SQL"
 ./install_sql.sh
 echo "install gdal"
 ./install_gdal.sh
+echo "install ghc"
+./install_ghc.sh
 echo "install postgis"
 ./install_postgis.sh
 echo "install grass"
