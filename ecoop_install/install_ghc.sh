@@ -45,6 +45,8 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
 
 wget http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2
 bunzip2 ghc-7.6.3-x86_64-unknown-linux.tar.bz2
@@ -81,4 +83,4 @@ cabal update
 cabal install alex
 cabal install happy
 cabal install pandoc
-cp -R /home/ecoop/.cabal/ /home/ecoop/Envs/env1/cabal
+cp -R /home/ecoop/.cabal/ /home/$USER/Envs/env1/cabal
