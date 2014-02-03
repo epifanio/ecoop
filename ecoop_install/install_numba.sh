@@ -82,34 +82,66 @@ $PREFIX/bin/pip install -r requirements.txt
 $PREFIX/bin/python setup.py install
 cd ..
 rm -rf numba
+rm -rf llvmpy
+# or move to src
+
+### start Blaze and few extra pkg
+
+$PREFIX/bin/pip install Blosc
+
+git clone https://github.com/ContinuumIO/blz.git
+cd blz
+$PREFIX/bin/python setu.py install
+cd ..
+# rm -rf blz
+
+git clone https://github.com/ContinuumIO/datashape.git
+cd datashape
+$PREFIX/bin/python setu.py install
+cd ..
+# rm -rf datashape
+
+git clone https://github.com/ContinuumIO/dynd-python
+cd dynd-python
+mkdir libraries
+cd libraries
+git clone https://github.com/ContinuumIO/libdynd
+cd ..
+mkdir build
+cd build
+$PREFIX/bin/cmake -DCMAKE_INSTALL_PREFIX=$PREFIX #-DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+make -j $np
+make install
+cd ../..
+
+git clone https://github.com/pykit/pykit.git
+cd pykit
+$PREFIX/bin/python setu.py install
+cd ..
+
+git clone https://github.com/ContinuumIO/blaze.git
+cd blaze
+$PREFIX/bin/python setu.py install
+cd ..
+
+$PREFIX/bin/pip install pyyaml
+$PREFIX/bin/pip install ply
 
 
-#pip install Blosc
+git clone git://github.com/Theano/Theano.git
+cd Theano
+$PREFIX/bin/python setu.py install
+cd ..
 
-#git clone https://github.com/ContinuumIO/blz.git
-#cd blz
-#python setu.py install
-#cd ..
+$PREFIX/bin/pip install graphviz
 
-#git clone https://github.com/ContinuumIO/datashape.git
-#cd datashape
-#python setu.py install
-#cd ..
-
-#git clone https://github.com/ContinuumIO/dynd-python
-#cd dynd-python
-#mkdir libraries
-#cd libraries
-#git clone https://github.com/ContinuumIO/libdynd
-#cd ..
-#mkdir build
-#cd build
-#$PREFIX/bin/cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+#wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.36.0.tar.gz
+#tar -zxvf graphviz-2.36.0.tar.gz
+#cd graphviz-2.36.0
+#./configure --prefix=$PREFIX
 #make -j $np
 #make install
 
-
-
-
-
+$PREFIX/bin/pip install sh
+$PREFIX/bin/pip install flask
 
