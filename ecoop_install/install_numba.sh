@@ -91,7 +91,7 @@ $PREFIX/bin/pip install Blosc
 
 git clone https://github.com/ContinuumIO/blz.git
 cd blz
-$PREFIX/bin/python setu.py install
+$PREFIX/bin/python setup.py install
 cd ..
 # rm -rf blz
 
