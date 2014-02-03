@@ -47,6 +47,8 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD 
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
 
 echo "installing proj"
 wget http://download.osgeo.org/proj/proj-4.8.0.tar.gz
