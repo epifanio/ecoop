@@ -211,6 +211,9 @@ $PREFIX/bin/pip install sqlalchemy  >> pip.log
 echo "installing tempdir"
 $PREFIX/bin/pip install tempdir  >> pip.log
 
+echo "installing pysqlite"
+$PREFIX/bin/pip install pysqlite  >> pip.log
+
 echo "installing pycsw"
 $PREFIX/bin/pip install pycsw  >> pip.log
 
@@ -299,4 +302,6 @@ ipython profile create ecoop --ipython-dir=$PREFIX/.ipython --parallel
 
 mkdir -p /home/$USER/Envs/notebooks/
 cp $CURRENTDIR/ipython.sh $PREFIX/bin
+
+
 
