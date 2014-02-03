@@ -55,12 +55,12 @@ export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
 echo "installing grass"
 svn -q checkout https://svn.osgeo.org/grass/grass/trunk grass7_trunk
 cd grass7_trunk 
-#LD_LIBRARY_PATH=$PREFIX/lib/ CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --with-freetype-includes=/usr/include/freetype2/ --with-geos=$PREFIX/bin/geos-config --with-netcdf=$PREFIX/bin/nc-config --with-proj-data=$PREFIX/share/proj/ --with-postgres=yes --with-sqlite --with-pthread --with-readline --with-lapack --with-blas --with-proj-includes=$PREFIX/include --with-proj-data=$PREFIX/share/ --prefix=$PREFIX >> configure.log
+#LD_LIBRARY_PATH=$PREFIX/lib/ CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --with-freetype-includes=/usr/include/freetype2/ --with-geos=$PREFIX/bin/geos-config --with-netcdf=$PREFIX/bin/nc-config --with-proj-data=$PREFIX/share/proj/ --with-postgres=yes --with-sqlite --with-pthread --with-readline --with-lapack --with-blas --with-proj-includes=$PREFIX/include --with-proj-data=$PREFIX/share/ --prefix=$PREFIX
 export LD_LIBRARY_PATH=$PREFIX/lib/
-./configure --with-freetype-includes=/usr/include/freetype2/ --with-geos=$PREFIX/bin/geos-config --with-netcdf=$PREFIX/bin/nc-config --with-proj-share=$PREFIX/share/proj --with-sqlite --with-pthread --with-readline --with-lapack --with-blas --prefix=$PREFIX --with-proj-includes=$PREFIX/include/ --with-proj-libs=$PREFIX/lib --with-postgres=yes --with-postgres-includes=$PREFIX/include/ --with-postgres-libs=$PREFIX/lib >> ../grass_configure.log
+./configure --with-freetype-includes=/usr/include/freetype2/ --with-geos=$PREFIX/bin/geos-config --with-netcdf=$PREFIX/bin/nc-config --with-proj-share=$PREFIX/share/proj --with-sqlite --with-pthread --with-readline --with-lapack --with-blas --prefix=$PREFIX --with-proj-includes=$PREFIX/include/ --with-proj-libs=$PREFIX/lib --with-postgres=yes --with-postgres-includes=$PREFIX/include/ --with-postgres-libs=$PREFIX/lib
 
-make -j $np >> ../grass_build.log
-make install >> ../grass_install.log 
+make -j $np
+make install
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
 mv grass7_trunk $TEMPBUILD/src

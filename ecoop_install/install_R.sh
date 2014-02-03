@@ -55,9 +55,9 @@ export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
 wget http://cran.us.r-project.org/src/base/R-3/R-3.0.2.tar.gz
 tar -zxf R-3.0.2.tar.gz
 cd R-3.0.2
-CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX/ --with-blas --with-lapack --enable-R-shlib >> ../R_configure.log
-make -j $np >> ../R_build.log
-make install >> ../R_install.log
+CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --prefix=$PREFIX/ --with-blas --with-lapack --enable-R-shlib
+make -j $np
+make install
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
 mv R-3.0.2.tar.gz $TEMPBUILD/tarball
@@ -69,18 +69,10 @@ cd $CURRENTDIR
 
 export PATH=$PREFIX/bin:$PATH
 echo "installing rpy2"
-$PREFIX/bin/pip install rpy2  >> pip.log
+$PREFIX/bin/pip install rpy2
 
 $PREFIX/bin/R CMD javareconf -e
-export LD_LIBRARY_PATH=/usr/lib64/gcj-4.4.4/
-
-#R --no-save < cemtos_build/installRpackages.r
-#R --no-save < cemtos_build/test.r
-
-# or 
-#$PREFIX/bin/R
-#install.packages("ctv")
-#library("ctv")
-#install.views("Spatial")
+export LD_LIBRARY_PATH=/usr/lib64/gcj-4.4.4/:$LD_LIBRARY_PATH
+$PREFIX/bin/R CMD javareconf -e
 
 

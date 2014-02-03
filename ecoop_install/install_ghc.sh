@@ -52,8 +52,8 @@ wget http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz
 bunzip2 ghc-7.6.3-x86_64-unknown-linux.tar.bz2
 tar -xvf ghc-7.6.3-x86_64-unknown-linux.tar
 cd ghc-7.6.3
-./configure --prefix=$PREFIX >> ../ghc_configure.log
-make install >> ../ghc_install.log
+./configure --prefix=$PREFIX
+make install
 
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD

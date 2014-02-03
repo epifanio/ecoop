@@ -61,4 +61,6 @@ for (i in packagelist) {
 	print(output)
 }
 
+install.packages('ctv', repos= "http://cran.rstudio.com/", lib = localib, dependencies = TRUE)
+
 q()

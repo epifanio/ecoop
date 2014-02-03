@@ -54,9 +54,9 @@ echo "installing proj"
 wget http://download.osgeo.org/proj/proj-4.8.0.tar.gz
 tar -zxf proj-4.8.0.tar.gz 
 cd proj-4.8.0
-./configure --prefix=$PREFIX/ >> ../proj_configure.log
-make -j $np >> ../proj_build.log
-make install >> ../proj_install.log
+./configure --prefix=$PREFIX/
+make -j $np
+make install
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
 mv proj-4.8.0.tar.gz $TEMPBUILD/tarball
@@ -68,12 +68,12 @@ tar -zxf basemap-1.0.7.tar.gz
 cd basemap-1.0.7
 cd geos-3.3.3
 export GEOS_DIR=$PREFIX/
-./configure --prefix=$GEOS_DIR >> ../../geos_configure.log
-make -j $np >> ../../geos_build.log
-make install >> ../../geos_install.log
+./configure --prefix=$GEOS_DIR
+make -j $np
+make install
 make distclean > /dev/null 2>&1
 cd ..
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv basemap-1.0.7.tar.gz $TEMPBUILD/tarball
@@ -81,9 +81,9 @@ mv basemap-1.0.7 $TEMPBUILD/src
 
 
 echo "installing shapely"
-$PREFIX/bin/pip install shapely >> pip.log
+$PREFIX/bin/pip install shapely
 echo "installing descartes"
-$PREFIX/bin/pip install descartes >> pip.log
+$PREFIX/bin/pip install descartes
 
 echo "installing shapelib"
 wget http://download.osgeo.org/shapelib/shapelib-1.3.0.tar.gz
@@ -92,7 +92,7 @@ cd shapelib-1.3.0
 wget http://ftp.intevation.de/users/bh/pyshapelib/pyshapelib-0.3.tar.gz
 tar -zxf pyshapelib-0.3.tar.gz
 cd pyshapelib-0.3
-$PREFIX/bin/python setup.py install >> pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD 
 mv shapelib-1.3.0.tar.gz $TEMPBUILD/tarball
@@ -100,12 +100,12 @@ mv shapelib-1.3.0 $TEMPBUILD/src
 
 
 echo "installing pyproj"
-$PREFIX/bin/pip install pyproj >> pip.log
+$PREFIX/bin/pip install pyproj
 
 echo "installing pyproj"
 git clone https://github.com/SciTools/cartopy.git
 cd cartopy
-$PREFIX/bin/python setup.py install >> pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD 
 

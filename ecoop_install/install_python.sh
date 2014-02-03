@@ -56,9 +56,9 @@ tar xpvf Python-2.7.6.tar.xz
 cd Python-2.7.6
 
 export CFLAGS="-fPIC"
-./configure --prefix=$PREFIX --enable-shared >> ../python_configure.log
-make -j $np >> ../python_build.log
-make altinstall >> ../python_install.log
+./configure --prefix=$PREFIX --enable-shared
+make -j $np
+make altinstall
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
 mv Python-2.7.6.tar.xz $TEMPBUILD/tarball
@@ -77,27 +77,27 @@ $PREFIX/bin/easy_install-2.7 pip
 echo "installing virtualenv"
 $PREFIX/bin/pip install virtualenv 
 echo "installing setuptools"
-$PREFIX/bin/pip install setuptools >> pip.log
+$PREFIX/bin/pip install setuptools
 echo "installing dateutils"
-$PREFIX/bin/pip install dateutils  >> pip.log
+$PREFIX/bin/pip install dateutils
 echo "installing docutils"
-$PREFIX/bin/pip install docutils  >> pip.log
+$PREFIX/bin/pip install docutils
 echo "installing jinja2"
-$PREFIX/bin/pip install jinja2  >> pip.log
+$PREFIX/bin/pip install jinja2
 echo "installing nose"
-$PREFIX/bin/pip install nose  >> pip.log
+$PREFIX/bin/pip install nose
 echo "installing numpy"
-$PREFIX/bin/pip install numpy  >> pip.log
+$PREFIX/bin/pip install numpy
 echo "installing paramiko"
-$PREFIX/bin/pip install paramiko  >> pip.log
+$PREFIX/bin/pip install paramiko
 echo "installing PIL"
-$PREFIX/bin/pip install PIL  >> pip.log
+$PREFIX/bin/pip install PIL
 echo "installing pygments"
-$PREFIX/bin/pip install pygments  >> pip.log 
+$PREFIX/bin/pip install pygments
 echo "installing scipy"
-$PREFIX/bin/pip install scipy  >> pip.log
+$PREFIX/bin/pip install scipy
 echo "installing sphinx"
-$PREFIX/bin/pip install sphinx  >> pip.log
+$PREFIX/bin/pip install sphinx
 
 echo "installing matplotlib"
 git clone https://github.com/matplotlib/matplotlib.git
@@ -107,35 +107,35 @@ cd ..
 mv matplotlib $TEMPBUILD/src
 
 #echo "installing matplotlib"
-#$PREFIX/bin/pip install matplotlib  >> pip.log
+#$PREFIX/bin/pip install matplotlib
 
 echo "installing pyzmq"
-$PREFIX/bin/pip install pyzmq  >> pip.log
+$PREFIX/bin/pip install pyzmq
 echo "installing tornado"
-$PREFIX/bin/pip install tornado  >> pip.log
+$PREFIX/bin/pip install tornado
 echo "installing envoy"
-$PREFIX/bin/pip install envoy  >> pip.log
+$PREFIX/bin/pip install envoy
 echo "installing qrcode"
-$PREFIX/bin/pip install qrcode  >> pip.log
+$PREFIX/bin/pip install qrcode
 echo "installing requests"
-$PREFIX/bin/pip install requests  >> pip.log
+$PREFIX/bin/pip install requests
 echo "installing owslib"
-$PREFIX/bin/pip install owslib  >> pip.log
+$PREFIX/bin/pip install owslib
 
 echo "installing husl"
-$PREFIX/bin/pip install husl  >> pip.log
+$PREFIX/bin/pip install husl
 echo "installing moss"
-$PREFIX/bin/pip install moss  >> pip.log
+$PREFIX/bin/pip install moss
 echo "installing seaborn"
-$PREFIX/bin/pip install seaborn  >> pip.log
+$PREFIX/bin/pip install seaborn
 
 cd $TEMPBUILD
 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
 tar -zxf hdf5-1.8.12.tar.gz
 cd hdf5-1.8.12
-./configure --prefix=$PREFIX/ --enable-shared --enable-hl >> ../hdf5_configure.log
-make -j $np >> ../hdf5_build.log
-make install >> ../hdf5_install.log
+./configure --prefix=$PREFIX/ --enable-shared --enable-hl
+make -j $np
+make install
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
 mv hdf5-1.8.12.tar.gz $TEMPBUILD/tarball
@@ -143,9 +143,9 @@ mv hdf5-1.8.12 $TEMPBUILD/src
 wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.0.tar.gz
 tar -zxf netcdf-4.3.0.tar.gz
 cd netcdf-4.3.0
-LDFLAGS=-L$PREFIX/lib CPPFLAGS=-I$PREFIX/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=$PREFIX >> ../netcdf_configure.log
-make -j $np >> ../netcdf_build.log
-make install >> ../netcdf_install.log
+LDFLAGS=-L$PREFIX/lib CPPFLAGS=-I$PREFIX/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=$PREFIX
+make -j $np
+make install
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
 mv netcdf-4.3.0.tar.gz $TEMPBUILD/tarball
@@ -155,7 +155,7 @@ mv netcdf-4.3.0 $TEMPBUILD/src
 wget ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.1.24.tar.gz
 tar -zxf udunits-2.1.24.tar.gz
 cd udunits-2.1.24
-./configure --prefix=$PREFIX >> ../udunits_configure.log
+./configure --prefix=$PREFIX
 make -j $np
 make install
 cd $TEMPBUILD
@@ -167,7 +167,7 @@ svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
 cd netcdf4-python
 export HDF5_DIR=$PREFIX/
 export NETCDF4_DIR=$PREFIX/
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv netcdf4-python $TEMPBUILD/src
@@ -178,7 +178,7 @@ export LD_LIBRARY_PATH=/u01/app/oracle/product/11.2.0/xe/lib:$LD_LIBRARY_PATH
 wget http://softlayer-dal.dl.sourceforge.net/project/cx-oracle/5.1.2/cx_Oracle-5.1.2.tar.gz
 tar -zxf cx_Oracle-5.1.2.tar.gz
 cd cx_Oracle-5.1.2
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv cx_Oracle-5.1.2.tar.gz $TEMPBUILD/tarball
@@ -187,39 +187,35 @@ mv cx_Oracle-5.1.2 $TEMPBUILD/src
 
 
 echo "installing h5py"
-$PREFIX/bin/pip install h5py >> pip.log
+$PREFIX/bin/pip install h5py
 echo "installing numexpr"
-$PREFIX/bin/pip install numexpr >> pip.log
+$PREFIX/bin/pip install numexpr
 echo "installing Cython"
-$PREFIX/bin/pip install Cython >> pip.log
+$PREFIX/bin/pip install Cython
 echo "installing tables"
-$PREFIX/bin/pip install tables >> pip.log
+$PREFIX/bin/pip install tables
 echo "installing pandas"
-$PREFIX/bin/pip install pandas >> pip.log
+$PREFIX/bin/pip install pandas
 echo "installing patsy"
-$PREFIX/bin/pip install patsy >> pip.log
+$PREFIX/bin/pip install patsy
 echo "installing pysal"
-$PREFIX/bin/pip install pysal >> pip.log
+$PREFIX/bin/pip install pysal
 echo "installing statsmodels"
-$PREFIX/bin/pip install statsmodels  >> pip.log
+$PREFIX/bin/pip install statsmodels
 echo "installing pyke"
-$PREFIX/bin/pip install pyke  >> pip.log
+$PREFIX/bin/pip install pyke
 echo "installing mock"
-$PREFIX/bin/pip install mock  >> pip.log
+$PREFIX/bin/pip install mock
 echo "installing sqlalchemy"
-$PREFIX/bin/pip install sqlalchemy  >> pip.log
+$PREFIX/bin/pip install sqlalchemy
 echo "installing tempdir"
-$PREFIX/bin/pip install tempdir  >> pip.log
-
+$PREFIX/bin/pip install tempdir
 echo "installing pysqlite"
-$PREFIX/bin/pip install pysqlite  >> pip.log
-
+$PREFIX/bin/pip install pysqlite
 echo "installing pycsw"
-$PREFIX/bin/pip install pycsw  >> pip.log
-
-
+$PREFIX/bin/pip install pycsw
 echo "installing sympy"
-$PREFIX/bin/pip install sympy  >> pip.log
+$PREFIX/bin/pip install sympy
 
 
 
@@ -242,19 +238,19 @@ cp gribapi.pth $PREFIX/lib/python2.7/site-packages/
 
 git clone https://github.com/activepapers/activepapers-python.git
 cd activepapers-python
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv activepapers-python $TEMPBUILD/src
 
 echo "installing scikit-learn"
-$PREFIX/bin/pip install scikit-learn  >> pip.log
+$PREFIX/bin/pip install scikit-learn
 
 echo "installing scikit-image"
-$PREFIX/bin/pip install scikit-image  >> pip.log
+$PREFIX/bin/pip install scikit-image
 
 echo "installing sympy"
-$PREFIX/bin/pip install sympy  >> pip.log
+$PREFIX/bin/pip install sympy
 
 echo "install mpld3"
 git clone https://github.com/jakevdp/mpld3.git
@@ -276,7 +272,7 @@ mv ipywidgets $TEMPBUILD/src
 
 git clone https://github.com/epmoyer/ipy_table.git
 cd ipy_table
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv ipy_table $TEMPBUILD/src
@@ -286,13 +282,13 @@ mv ipy_table $TEMPBUILD/src
 
 git clone https://github.com/ContinuumIO/bokeh.git
 cd bokeh
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 cd ..
 mv bokeh $TEMPBUILD/src
 
 git clone https://github.com/ipython/ipython
 cd ipython
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv ipython $TEMPBUILD/src

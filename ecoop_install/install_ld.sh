@@ -55,17 +55,17 @@ export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
 
 git clone https://github.com/digitalbazaar/pyld.git
 cd pyld
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv pyld $TEMPBUILD/src
 
 echo "installing rdflib"
-$PREFIX/bin/pip install rdflib >> pip.log
+$PREFIX/bin/pip install rdflib
 
 git clone https://github.com/RDFLib/rdflib-jsonld.git
 cd rdflib-jsonld
-$PREFIX/bin/python setup.py install >> ../pyinstall.log
+$PREFIX/bin/python setup.py install
 rm -rf build
 cd $TEMPBUILD
 mv rdflib-jsonld $TEMPBUILD/src
