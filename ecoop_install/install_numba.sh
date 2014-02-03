@@ -97,7 +97,7 @@ cd ..
 
 git clone https://github.com/ContinuumIO/datashape.git
 cd datashape
-$PREFIX/bin/python setu.py install
+$PREFIX/bin/python setup.py install
 cd ..
 # rm -rf datashape
 
@@ -109,19 +109,19 @@ git clone https://github.com/ContinuumIO/libdynd
 cd ..
 mkdir build
 cd build
-$PREFIX/bin/cmake -DCMAKE_INSTALL_PREFIX=$PREFIX #-DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+$PREFIX/bin/cmake -DCMAKE_INSTALL_PREFIX=$PREFIX .. #-DCMAKE_BUILD_TYPE=RelWithDebInfo ..
 make -j $np
 make install
 cd ../..
 
 git clone https://github.com/pykit/pykit.git
 cd pykit
-$PREFIX/bin/python setu.py install
+$PREFIX/bin/python setup.py install
 cd ..
 
 git clone https://github.com/ContinuumIO/blaze.git
 cd blaze
-$PREFIX/bin/python setu.py install
+$PREFIX/bin/python setup.py install
 cd ..
 
 $PREFIX/bin/pip install pyyaml
@@ -130,7 +130,7 @@ $PREFIX/bin/pip install ply
 
 git clone git://github.com/Theano/Theano.git
 cd Theano
-$PREFIX/bin/python setu.py install
+$PREFIX/bin/python setup.py install
 cd ..
 
 $PREFIX/bin/pip install graphviz
