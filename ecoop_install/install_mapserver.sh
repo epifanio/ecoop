@@ -35,16 +35,33 @@
 ###############################################################################
 
 
-sudo apt-get install -y build-essential liblapack-dev libzzip-dev libssl-dev \
-libncurses5-dev libsqlite3-dev libreadline-dev tk-dev tcl-dev \
-libfreetype6-dev libpng12-dev subversion git libxml2-dev libcurl4-gnutls-dev \
-libtiff5-dev libglu1-mesa-dev libglw1-mesa-dev libatlas-dev libopenjpeg-dev \
-libcairo2-dev libpcre3-dev gnuplot-x11 texlive libgsl0-dev libsqlite0-dev libzip-dev libbz2-dev libpq-dev libgif-dev libfcgi-dev libghc-svgcairo-dev \
-libgtk2.0-dev openjdk-7-jre openjdk-7-jdk libfftw3-dev libssl-dev libreadline-dev pandoc cabal-install gfortran swig
+np=${nproc}
 
-# texlive-latex-recommended
-# libmagick++-dev  # broken
+BUILD=epilib
+PREFIX=/home/$USER/Envs/env1
 
-sudo apt-get -y install autoconf automake build-essential git libass-dev libgpac-dev \
-libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libx11-dev \
-libxext-dev libxfixes-dev pkg-config texi2html zlib1g-dev yasm libmp3lame-dev nasm libvpx-dev libxslt-dev flex bison libffi-dev
+TEMPBUILD=/home/$USER/$BUILD
+
+
+cd $TEMPBUILD
+export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
+
+
+echo "installing mapserver"
+wget http://download.osgeo.org/mapserver/mapserver-6.4.1.tar.gz
+tar -zxf mapserver-6.4.1.tar.gz
+cd mapserver-6.4.1
+mkdir build
+cd build
+cmake ..
+make -j $np
+make install
+make distclean > /dev/null 2>&1
+cd $TEMPBUILD
+mv mapserver-6.4.1.tar.gz $TEMPBUILD/tarball
+mv mapserver-6.4.1 $TEMPBUILD/src
+
+
+
+
