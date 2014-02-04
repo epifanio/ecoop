@@ -99,7 +99,9 @@ mv shapelib-1.3.0.tar.gz $TEMPBUILD/tarball
 mv shapelib-1.3.0 $TEMPBUILD/src
 
 
+
 echo "installing pyproj"
+export PROJ_DIR=$PREFIX
 $PREFIX/bin/pip install pyproj
 
 echo "installing pyproj"
