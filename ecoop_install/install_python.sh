@@ -34,7 +34,7 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
-﻿np=`cat /proc/cpuinfo | grep processor | wc -l`
+np=${nproc}
 
 # PYTHON
 

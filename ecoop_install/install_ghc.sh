@@ -34,6 +34,8 @@
 # DEALINGS IN THE SOFTWARE.
 ###############################################################################
 
+np=${nproc}
+
 CURRENTDIR=${PWD}
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
@@ -53,7 +55,7 @@ bunzip2 ghc-7.6.3-x86_64-unknown-linux.tar.bz2
 tar -xvf ghc-7.6.3-x86_64-unknown-linux.tar
 cd ghc-7.6.3
 ./configure --prefix=$PREFIX
-make install
+make install -j $np
 
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD

@@ -35,7 +35,7 @@
 ###############################################################################
 
 
-np=`cat /proc/cpuinfo | grep processor | wc -l`
+np=${nproc}
 
 BUILD=epilib
 PREFIX=/home/$USER/Envs/env1
