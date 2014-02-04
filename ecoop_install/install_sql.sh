@@ -77,16 +77,16 @@ mv libspatialite-4.1.1 $TEMPBUILD/src
 
 
 echo "installing postgresql"
-wget http://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.0.tar.gz
-tar -zxf postgresql-9.3.0.tar.gz
-cd postgresql-9.3.0
+wget http://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.2.tar.gz
+tar -zxf postgresql-9.3.2.tar.gz
+cd postgresql-9.3.2
 ./configure --prefix=$PREFIX/
 make -j $np
 make install
 make distclean > /dev/null 2>&1
 cd $TEMPBUILD
-mv postgresql-9.3.0.tar.gz $TEMPBUILD/tarball
-mv postgresql-9.3.0 $TEMPBUILD/src
+mv postgresql-9.3.2.tar.gz $TEMPBUILD/tarball
+mv postgresql-9.3.2 $TEMPBUILD/src
 
 $PREFIX/bin/pip install psycopg2 
 python setup.py build_ext --pg-config /path/to/pg_config build ...
