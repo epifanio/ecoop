@@ -53,7 +53,7 @@ wget http://download.osgeo.org/gdal/1.10.1/gdal-1.10.1.tar.gz
 tar -zxf gdal-1.10.1.tar.gz
 cd gdal-1.10.1
 #--with-pg=$PREFIX/bin/pg_config
-CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PREFIX/bin/python --with-pg=$PREFIX/bin/pg_config --prefix=$PREFIX/ --with-netcdf=$PREFIX/ >> ../gdal_configure.log
+CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PREFIX/bin/python --with-pg=$PREFIX/bin/pg_config --prefix=$PREFIX/ --with-netcdf=$PREFIX/
 make -j $np
 make install
 make distclean > /dev/null 2>&1

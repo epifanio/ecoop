@@ -47,6 +47,7 @@ packagelist <- core
 
 username <- Sys.getenv("USER")
 localib <- paste("/home/",username,"/Envs/env1/lib64/R/library/",sep="")
+.libPaths( c( .libPaths(), localib) )
 
 for (i in packagelist) {
 	install.packages(i, repos= "http://cran.rstudio.com/", lib = localib, dependencies = TRUE) 

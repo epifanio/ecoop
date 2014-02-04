@@ -77,7 +77,7 @@ mv libspatialite-4.1.1 $TEMPBUILD/src
 
 
 echo "installing postgresql"
-wget http://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.2.tar.gz
+wget http://ftp.postgresql.org/pub/source/v9.3.2/postgresql-9.3.2.tar.gz
 tar -zxf postgresql-9.3.2.tar.gz
 cd postgresql-9.3.2
 ./configure --prefix=$PREFIX/
