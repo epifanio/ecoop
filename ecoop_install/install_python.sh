@@ -122,12 +122,7 @@ $PREFIX/bin/pip install requests
 echo "installing owslib"
 $PREFIX/bin/pip install owslib
 
-echo "installing husl"
-$PREFIX/bin/pip install husl
-echo "installing moss"
-$PREFIX/bin/pip install moss
-echo "installing seaborn"
-$PREFIX/bin/pip install seaborn
+
 
 cd $TEMPBUILD
 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
@@ -217,6 +212,14 @@ $PREFIX/bin/pip install pycsw
 echo "installing sympy"
 $PREFIX/bin/pip install sympy
 
+echo "installing six"
+$PREFIX/bin/pip install six
+echo "installing husl"
+$PREFIX/bin/pip install husl
+echo "installing moss"
+$PREFIX/bin/pip install moss
+echo "installing seaborn"
+$PREFIX/bin/pip install seaborn
 
 
 wget --no-check-certificate -c --progress=dot:mega \
