@@ -90,8 +90,8 @@ echo "installing numpy"
 $PREFIX/bin/pip install numpy
 echo "installing paramiko"
 $PREFIX/bin/pip install paramiko
-echo "installing PIL"
-$PREFIX/bin/pip install PIL
+echo "installing Image"
+$PREFIX/bin/pip install Image
 echo "installing pygments"
 $PREFIX/bin/pip install pygments
 echo "installing scipy"
