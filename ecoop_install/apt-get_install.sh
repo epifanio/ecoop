@@ -35,8 +35,8 @@
 ###############################################################################
 
 
-sudo apt-get install -y build-essential liblapack-dev libzzip-dev libssl-dev \
-libncurses5-dev libsqlite3-dev libreadline-dev tk-dev tcl-dev graphviz \
+sudo apt-get install -y build-essential liblapack-dev libzzip-dev libssl-dev unixodbc-dev amd-opencl-dev\
+libncurses5-dev libsqlite3-dev libreadline-dev tk-dev tcl-dev graphviz texlive-latex-extra imagemagick \
 libfreetype6-dev libpng12-dev subversion git libxml2-dev libcurl4-gnutls-dev libpodofo-dev libpoppler-dev \
 libtiff5-dev libglu1-mesa-dev libglw1-mesa-dev libatlas-dev libopenjpeg-dev php5-dev apache2 libarmadillo-dev libkml-dev \
 libcairo2-dev libpcre3-dev gnuplot-x11 texlive libgsl0-dev libsqlite0-dev libzip-dev libbz2-dev libpq-dev libgif-dev libfcgi-dev libghc-svgcairo-dev \

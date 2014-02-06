@@ -123,8 +123,30 @@ echo "installing owslib"
 $PREFIX/bin/pip install owslib
 
 
-
 cd $TEMPBUILD
+wget http://www.hdfgroup.org/ftp/lib-external/szip/2.1/src/szip-2.1.tar.gz
+tar -zxf szip-2.1.tar.gz
+cd szip-2.1
+./configure --prefix=$PREFIX/ --enable-shared
+make -j $np
+make install
+make distclean > /dev/null 2>&1
+cd $TEMPBUILD
+mv szip-2.1.tar.gz $TEMPBUILD/tarball
+mv szip-2.1 $TEMPBUILD/src
+
+wget http://www.hdfgroup.org/ftp/HDF/HDF_Current/src/hdf-4.2.9.tar.gz
+tar -zxf hdf-4.2.9.tar.gz
+cd hdf-4.2.9
+./configure --prefix=$PREFIX/ --enable-shared --disable-fortran --with-szlib=$PREFIX/ --enable-netcdf=no
+make -j $np
+make install
+make distclean > /dev/null 2>&1
+cd $TEMPBUILD
+mv hdf-4.2.9.tar.gz $TEMPBUILD/tarball
+mv hdf-4.2.9 $TEMPBUILD/src
+
+
 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.12.tar.gz
 tar -zxf hdf5-1.8.12.tar.gz
 cd hdf5-1.8.12

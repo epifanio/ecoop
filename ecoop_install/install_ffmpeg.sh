@@ -47,7 +47,16 @@ mkdir -p $TEMPBUILD/src
 
 cd $TEMPBUILD
 export PATH=$PREFIX/bin:$PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/lib64:$LD_LIBRARY_PATH
 
+
+wget http://www.tortall.net/projects/yasm/releases/yasm-1.2.0.tar.gz 
+tar xvfz yasm-1.2.0.tar.gz 
+cd yasm-1.2.0 
+./configure --prefix=$PREFIX 
+make -j $np
+make install
+cd $TEMPBUILD
 
 git clone --depth 1 git://git.videolan.org/x264.git
 cd x264
