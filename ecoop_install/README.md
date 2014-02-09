@@ -31,8 +31,10 @@ Basic Installation to test the Climate Forcing notebook :
 
 
 
+Full installation 
 
-## Full installation 
+###
+
 Local environment that includes a complete set of tool and libraries to work with R-GRASS-Scientiphic Python and more
 
 
