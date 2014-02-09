@@ -1,4 +1,44 @@
-## Installation instruction
+## Instruction
+
+---
+
+####Basic Installation to test the Climate Forcing notebook :
+
+* Download and install the ecoop code and its dependencies
+    
+    ```
+    wget http://udoo.whoi.edu/shared/ecoop-0.0.1.tar.gz
+    tar -zxvf ecoop-0.0.1.tar.gz
+    cd ecoop-0.0.1
+    pip install -r requirement.txt
+    python setup.py install
+    cd ..
+    ```
+
+*  pdflatex<br>
+
+    ```
+    apt-get install texlive texlive-latex-extra      
+    ```
+      
+* gist utility:
+
+    ```
+    apt-get install rubygems
+    gem install gist
+    ```
+
+
+
+
+---
+
+####Full installation 
+
+
+
+Local environment that includes a complete set of tool and libraries to work with R-GRASS-Scientiphic Python and more
+
 
 * download the following scripts on a linux machine (CentOS 6.x 64 - bit) :
 
