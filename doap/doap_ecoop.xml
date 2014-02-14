@@ -1,55 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:foaf="http://xmlns.com/foaf/0.1/"
-	xmlns="http://usefulinc.com/ns/doap#">
+<?xml version="1.0" encoding="UTF-8" ?>
+<rdf:RDF xmlns="http://usefulinc.com/ns/doap#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Project>
+<name>
+ecoop
+</name>
 
-	<name>ECOOP</name>
-	<homepage rdf:resource="http://tw.rpi.edu/web/project/ECOOP" />
-		<created>2011-03-11</created>
+<shortdesc>
+    ecoop: utility enable the reproducibility of a scintific workflow
+</shortdesc>
 
-		<shortdesc xml:lang="en">
-		  Tools and vocabulary for describing ECOAP
-		  software projects.
-		</shortdesc>
+<description>
+The latest development version is always available from IPython's `GitHub
+site &lt;https://github.com/epifanio/ecoop/`_.
+</description>
 
-		<description xml:lang="en">
-			DOAP (Description of a Project) is an RDF vocabulary and
-			associated set of tools for describing community-based software
-			projects.  It is intended to be an interchange vocabulary for
-			software directory sites, and to allow the decentralized
-			expression of involvement in a project.
-		</description>
+<download-page>
+    https://github.com/ipython/ipython/downloads
+</download-page>
 
-		<mailing-list rdf:resource="https://lists.sympa.rpi.edu/wws/subscribe/ecoop-nefsc" />
+<homepage rdf:resource="https://github.com/epifanio/ecoop" />
 
-		<!-- ligo / orion / github ?
-		<download-page rdf:resource="https://github.com/epifanio/ecoop/archive/master.zip" />
-		<download-mirror rdf:resource="http://sourceforge.net/projects/librdf/" />
-	    -->
+<maintainer>
+<foaf:Person><foaf:name>Massimo Di Stefano</foaf:name>
+<foaf:mbox_sha1sum>xxxx</foaf:mbox_sha1sum></foaf:Person>
+</maintainer>
 
-		<maintainer>
-			<foaf:Person>
-				<foaf:name>Massimo di Stefano</foaf:name>
-				<foaf:homepage rdf:resource="http://tw.rpi.edu/web/person/MassimoDiStefano" />
-			</foaf:Person>
-		</maintainer>
+<release><Version><revision>0.0.1</revision></Version></release>
 
-		<release>
-			<Version>
-				<name>unstable</name>
-				<created>2014-02-13</created>
-				<revision>0.1</revision>
-			</Version>
-		</release>
-
-		<license rdf:resource="http://spdx.org/licenses/GPL-2.0+" />
-
-		<repository>
-			<GitRepository>
-				<location rdf:resource="https://github.com/epifanio/ecoop.git"/>
-				<browse rdf:resource="https://github.com/epifanio/ecoop"/>
-			</GitRepository>
-		</repository>
-
-</Project>
+</Project></rdf:RDF>
