@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns="http://usefulinc.com/ns/doap#">
+
+	<name>ipython</name>
+	<homepage rdf:resource="http://ipython.org" />
+		<created>2011-03-11</created>
+
+		<shortdesc xml:lang="en">
+		  IPython: Productive Interactive Computing
+		</shortdesc>
+
+		<description xml:lang="en">
+			IPython provides a rich toolkit to help you make the most out of using Python interactively.
+
+            Its main components are:
+
+            * Powerful interactive Python shells (terminal- and Qt-based).
+            * A web-based interactive notebook environment with all shell features plus support for embedded figures, animations and rich media.
+            * Support for interactive data visualization and use of GUI toolkits.
+            * Flexible, embeddable interpreters to load into your own projects.
+            * A high-performance library for high level and interactive parallel computing that works in multicore systems, clusters, supercomputing and cloud scenarios.
+
+            The enhanced interactive Python shells have the following main features:
+
+            * Comprehensive object introspection.
+            * Input history, persistent across sessions.
+            * Caching of output results during a session with automatically generated references.
+            * Extensible tab completion, with support by default for completion of python variables and keywords, filenames and function keywords.
+            * Extensible system of 'magic' commands for controlling the environment and performing many tasks related either to IPython or the operating system.
+            * A rich configuration system with easy switching between different setups (simpler than changing $PYTHONSTARTUP environment variables every time).
+            * Session logging and reloading.
+            * Extensible syntax processing for special purpose situations.
+            * Access to the system shell with user-extensible alias system.
+            * Easily embeddable in other Python programs and GUIs.
+            * Integrated access to the pdb debugger and the Python profiler.
+
+            The parallel computing architecture has the following main features:
+
+            * Quickly parallelize Python code from an interactive Python/IPython session.
+            * A flexible and dynamic process model that be deployed on anything from multicore workstations to supercomputers.
+            * An architecture that supports many different styles of parallelism, from message passing to task farming.
+            * Both blocking and fully asynchronous interfaces.
+            * High level APIs that enable many things to be parallelized in a few lines of code.
+            * Share live parallel jobs with other users securely.
+            * Dynamically load balanced task farming system.
+            * Robust error handling in parallel code.
+		</description>
+
+
+		<mailing-list rdf:resource="http://mail.scipy.org/mailman/listinfo/ipython-dev" />
+
+
+		<download-page rdf:resource="https://github.com/ipython/ipython/releases" />
+		<download-mirror rdf:resource="https://pypi.python.org/pypi/ipython#downloads" />
+
+
+		<maintainer>
+			<foaf:Person>
+				<foaf:name>Massimo di Stefano</foaf:name>
+				<foaf:homepage rdf:resource="http://tw.rpi.edu/web/person/MassimoDiStefano" />
+			</foaf:Person>
+		</maintainer>
+
+		<release>
+			<Version>
+				<name>unstable</name>
+				<created>2014-02-13</created>
+				<revision>0.1</revision>
+			</Version>
+		</release>
+
+		<license rdf:resource="http://spdx.org/licenses/GPL-2.0+" />
+
+		<repository>
+			<GitRepository>
+				<location rdf:resource="https://github.com/epifanio/ecoop.git"/>
+				<browse rdf:resource="https://github.com/epifanio/ecoop"/>
+			</GitRepository>
+		</repository>
+
+</Project>
