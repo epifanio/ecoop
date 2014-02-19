@@ -67,6 +67,13 @@ exit
 
 * chose a directory where you want the local environment installed, better if the directory is accessible from more users e.g.:  /home/localenv  (be sure the directory exist and is writable)
 
+
+```
+sudo mkdir localenv
+sudo chmod -r 777 localenv
+```
+
+
 * run the script giving the insgtallation PATH as argument :
 
 ```
