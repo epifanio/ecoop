@@ -11,19 +11,4 @@ Notebook used for the  Climate forcing UseCase :
 
 - [executed](http://nbviewer.ipython.org/gist/epifanio/9164897)
 
-List of python packages :
 
-* paramiko
-* qrcode
-* ipython
-* envoy
-* numpy 
-* scipy
-* statsmodels
-* pandas 
-* matplotlib
-
-external dependencies :
-
-* latex-live
-* jist
