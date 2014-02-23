@@ -9,7 +9,7 @@ Notebook used for the  Climate forcing UseCase :
 
 - [clean](http://nbviewer.ipython.org/urls/raw.github.com/epifanio/ecoop/master/notebook/ecoop_t1.ipynb)
 
-- [executed](http://nbviewer.ipython.org/7307864)
+- [executed](http://nbviewer.ipython.org/gist/epifanio/9164897)
 
 List of python packages :
 
