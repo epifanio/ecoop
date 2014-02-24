@@ -6,7 +6,7 @@ ecoop
 </name>
 
 <shortdesc>
-    ecoop: Utility to enable the reproducibility of a scientific workflow
+    ecoop: set of Utility functions to help automatize the generate the Ecosystem Stasus Report
 </shortdesc>
 
 <description>
