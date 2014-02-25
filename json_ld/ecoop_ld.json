@@ -1,0 +1,478 @@
+[
+    {
+        "@id": "http://xmlns.com/foaf/0.1/name",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://xmlns.com/foaf/0.1/"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Name"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/dcat#downloadURL",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/dcat#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Download URL"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl#IPythonNotebook",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "An iPython Notebook"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "IPython Notebook"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Entity"
+            }
+        ]
+    },
+    {
+        "@id": "http://purl.org/dc/terms/isPartOf",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://purl.org/dc/terms/"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Is Part Of"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/dcat#Dataset",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/dcat#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Dataset"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl#CellRun",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "The running of a cell in an iPython Notebook"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Cell Run"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Activity"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl#Cell",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "A cell in an iPython Notebook"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Cell"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Entity"
+            }
+        ]
+    },
+    {
+        "@id": "http://purl.org/dc/terms/hasPart",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://purl.org/dc/terms/"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Has Part"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/prov#generated",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Activity"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/prov-o#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "generated"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Entity"
+            }
+        ],
+        "http://www.w3.org/2002/07/owl#inverseOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/dcat#Distribution",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/dcat#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Distribution"
+            }
+        ]
+    },
+    {
+        "@id": "http://purl.org/dc/terms/description",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://purl.org/dc/terms/"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Description"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl#Document",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "A bounded physical representation of body of information designed with the capacity (and usually intent) to communicate, and it has been made available to the public."
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Document"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Entity"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "http://purl.org/dc/terms/contributor": [
+            {
+                "@value": "Patrick West <westp@rpi.edu>; Joe Futrelle <jfutrelle@whoi.edu>; Massimo Di Stefano <distem@rpi.edu>; Linyun Fu <ful2@rpi.edu>; Chengcong Du <duc2@rpi.edu>"
+            }
+        ],
+        "http://purl.org/dc/terms/creator": [
+            {
+                "@value": "Xiaogang Ma <max7@rpi.edu>; Stace Beaulieu <sbeaulieu@whoi.edu>; Peter Fox <foxp@rpi.edu>"
+            }
+        ],
+        "http://purl.org/dc/terms/date": [
+            {
+                "@value": "2013-10-31"
+            }
+        ],
+        "http://purl.org/dc/terms/identifier": [
+            {
+                "@value": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl"
+            }
+        ],
+        "http://purl.org/dc/terms/title": [
+            {
+                "@value": "Ontology for ECOOP Provenance Capturing"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "An ontology designed for capturing provenance information in the research project INTEROP ECO-OP: Employing Cyber Infrastructure Data Technologies to Facilitate IEA for Climate Impacts in NE & CA LME's (#3 & #7). The ontology uses the namespace prefix ecoop."
+            }
+        ],
+        "http://www.w3.org/2002/07/owl#versionInfo": [
+            {
+                "@value": "1.0"
+            }
+        ],
+        "http://www.w3.org/2009/08/skos-reference/skos.rdf#historyNote": [
+            {
+                "@value": "The ontology is a part of the result of the ECO-OP project (2010-2014) at Tetherless World Constellation, Rensselaer Polytechnic Institute and Woods Hole Oceanographic Institution. More details of that project is accessible at: http://tw.rpi.edu/web/project/ECOOP."
+            }
+        ]
+    },
+    {
+        "@id": "http://purl.org/dc/terms/title",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://purl.org/dc/terms/"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Title"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl#IPythonNotebookRun",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "The running of an iPython Notebook"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "IPython Notebook Run"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Activity"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Entity"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/prov-o#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "wasGeneratedBy"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Activity"
+            }
+        ],
+        "http://www.w3.org/2002/07/owl#inverseOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#generated"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/prov#Agent",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/prov-o#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Agent"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/dcat#distribution",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+            {
+                "@id": "http://www.w3.org/ns/dcat#Dataset"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/dcat#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Has Distribution"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http://www.w3.org/ns/dcat#Distribution"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/prov#Entity",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/prov-o#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Entity"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/prov#Activity",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/prov-o#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Activity"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl#Dataset",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "A collection of data, published or curated by a single agent, and available for access or download in one or more formats."
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Dataset"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Entity"
+            },
+            {
+                "@id": "http://www.w3.org/ns/dcat#Dataset"
+            }
+        ]
+    },
+    {
+        "@id": "http://www.w3.org/ns/dcat#accessURL",
+        "@type": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http://www.w3.org/ns/dcat#"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Access URL"
+            }
+        ]
+    },
+    {
+        "@id": "http://escience.rpi.edu/ontology/eco-op/ecoopProv.ttl#Library",
+        "@type": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "A collection of software subprograms that provides functionality, to be incorporated into or used by a computer program."
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "Library"
+            }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+            {
+                "@id": "http://www.w3.org/ns/prov#Entity"
+            }
+        ]
+    }
+]
